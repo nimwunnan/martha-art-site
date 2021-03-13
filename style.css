@@ -1,0 +1,79 @@
+body {
+    background: url('images/bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    min-height: 200vh;
+}
+#textdiv {
+    position: fixed;
+    z-index: 1000;
+}
+#front-frame {
+    width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    z-index: 9999;
+}
+#treeguys {
+    z-index: 1001;
+    position: fixed;
+    transition: margin-left 5s;
+    transition-timing-function: ease-in;
+}
+#guystree {
+    z-index: 1000;
+    position: fixed;
+    transition: margin-left 5s;
+    transition-timing-function: ease-in;
+}
+
+.frontimg {
+    width: 100vw;
+}
+#videoframe {
+/*    border: solid 15px rebeccapurple;
+    background: goldenrod;*/
+    left: 45vw;
+    top: 25vh;
+    float: left;
+    position: absolute;
+    /*transform: scale(.4);*/
+    height: 120vh;
+    z-index: 50;
+}
+
+#cathedral {
+    float: left;
+    width: 60vw;
+    flex-wrap: wrap;
+    position: fixed;
+    left: 25vw;
+    top: 10vh;
+    transition: transform 2s;
+    transform: scale(.4);
+
+}
+
+#cathedral div {
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    width: 20vw;
+
+}
+#cathedral div.top {
+    height: 34vw;
+    background-position: bottom left;
+}
+#cathedral div.mid {
+    height: 21.5vw;
+}
+#cathedral div.bottom {
+    height: 31vw;
+    background-position: top left;
+}
+
+#videoframe img {
+    margin: 45px;
+}

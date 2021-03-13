@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="jquery.zoomooz.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () { 
+            var video = $("#videoBG");
+            $('.frontimg').on("click", function() {
+                $('#treeguys').css('margin-left', "-10000px");
+                $('#guystree').css('margin-left', "10000px");
+                $("#cathedral").css('transform', "scale(1)");
+
+            });
+
+            //Play/Pause control clicked
+            $('.playbutt').on('click', function() {
+                let vidsource = $(this).data('video');
+
+                $("#videoBG source").attr('src', vidsource);
+                video[0].load();
+                video[0].play();
+
+                // if(video[0].paused) {
+                //     video[0].play();
+                // }
+                // else {
+                //     video[0].pause();
+                // }
+                if( $(video).prop('muted') ) {
+                          $(video).prop('muted', false);
+                    } else {
+                      $(video).prop('muted', true);
+                    }
+                return false;
+            });
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <img class="frontimg" id="treeguys" src="images/treeguys.gif">
+        <img class="frontimg" id="guystree" src="images/guystree.gif">
+
+
+        <div id="cathedral">
+            <div class="top" style="background-image:url('images/gc1.png')"></div>
+            <div class="top" style="background-image:url('images/gc2.png')"></div>
+            <div class="top" style="background-image:url('images/gc3.png')"></div>
+            <div class="mid" style="background-image:url('images/gc4.png')"></div>
+            <div class="mid" style="background-image:url('images/gc5.png')"></div>
+            <div class="mid" style="background-image:url('images/gc6.png')"></div>
+            <div class="bottom" style="background-image:url('images/gc7.png'); margin-top:-4vw;"></div>
+            <div class="bottom" style="background-image:url('images/gc8.png')"></div>
+            <div class="bottom" style="background-image:url('images/gc9.png')"></div>
+
+        </div>
+        <div style="display: none;">
+        <div id="textdiv">
+
+
+            <h1>Lorem ipsum</h1>
+                    <button class="playbutt" data-video="vsc.MP4">VSC</button>
+                    <button class="playbutt" data-video="bunny.MP4">Bunny</button>
+        </div>
+        <div id="videoframe" class="zoomTarget" data-targetsize="1.6">
+              <img src="https://placekitten.com/200/200" class="zoomTarget" data-targetsize="1.1">
+              <img src="https://placekitten.com/100/200" class="zoomTarget" data-targetsize="1.1">
+              <img src="https://placekitten.com/150/200" class="zoomTarget" data-targetsize="1.1">
+
+<!--         <video id="videoBG" poster="lutenim.jpg" muted loop >
+            <source src="vsc.MP4" type="video/mp4">
+        </video>
+ -->    
+    </div>
+</body>
+</html>
