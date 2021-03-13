@@ -3,7 +3,6 @@ body {
     background-attachment: fixed;
     background-size: cover;
     overflow-x: hidden;
-    min-height: 200vh;
 }
 #textdiv {
     position: fixed;
@@ -17,13 +16,13 @@ body {
 }
 #treeguys {
     z-index: 1001;
-    position: fixed;
+    position: absolute;
     transition: margin-left 5s;
     transition-timing-function: ease-in;
 }
 #guystree {
     z-index: 1000;
-    position: fixed;
+    position: absolute;
     transition: margin-left 5s;
     transition-timing-function: ease-in;
 }
