@@ -32,8 +32,7 @@ body {
     width: 100vw;
 }
 #videoframe {
-/*    border: solid 15px rebeccapurple;
-    background: goldenrod;*/
+
     left: 45vw;
     top: 25vh;
     float: left;
