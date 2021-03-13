@@ -48,8 +48,9 @@ body {
     position: fixed;
     left: 25vw;
     top: 10vh;
-    transition: transform 2s;
+    transition: transform 3s;
     transform: scale(.4);
+    transition-timing-function: ease-out;
 
 }
 
