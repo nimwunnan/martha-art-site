@@ -17,13 +17,13 @@ body {
 #treeguys {
     z-index: 1001;
     position: absolute;
-    transition: margin-left 5s;
+    transition: margin-left 5s, margin-top 8s;
     transition-timing-function: ease-in;
 }
 #guystree {
     z-index: 1000;
     position: absolute;
-    transition: margin-left 5s;
+    transition: margin-left 5s, margin-top 8s;
     transition-timing-function: ease-in;
 }
 
