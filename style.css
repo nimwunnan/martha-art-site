@@ -68,9 +68,23 @@ body {
     height: 34vw;
     background-position: bottom left;
 }
-
-#cathedral div.top img {
-    padding: 85% 0 0 30%;
+#cathedral div.top img.winder  {
+    width: 20vw;
+    height: 34vw;
+    position: relative;
+    z-index: 1000;
+    transition: opacity 2s;
+    margin-bottom: -15vw;
+    cursor: pointer;
+}
+#cathedral div.top img.playbutt {
+    width: 15vw;
+    height: auto;
+    transition: transform 3s, top 3s, left 3s;
+    top: inherit;
+    left: inherit;
+    position: relative;
+    transition-timing-function: ease-out;
 }
 #cathedral div.mid {
     height: 21.5vw;

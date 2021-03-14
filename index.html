@@ -6,15 +6,41 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <!-- <script src="jquery.zoomooz.js"></script> -->
     <script type="text/javascript">
+
+        jQuery.fn.center = function () {
+            this.css("position","absolute");
+            this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + 
+                                                        $(window).scrollTop()) + "px");
+            this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + 
+                                                        $(window).scrollLeft()) + "px");
+            return this;
+        }
+        jQuery.fn.embiggen = function (mtop, mleft) {
+
+            let mtop_orig = this.css('top');
+            let mleft_orig = this.css('left');
+            let z_orig = this.css('z-index');
+            let thisguy = this;
+            console.log (mtop+" and "+mleft);
+            this.css({"z-index" : 5000, "transform" : 'scale(3)', "left" : mleft, "top" : mtop, "cursor" : "pointer"});
+            this.on('click', function() {
+               thisguy.css({"z-index" : z_orig, "transform" : 'scale(1)', "left" : mleft_orig, "top" : mtop_orig, });
+               thisguy.delay(3000).siblings(".winder").css({'opacity': 1, "z-index": 4999});
+            });
+        }
         $(document).ready(function () { 
             var video = $("#videoBG");
             $('.frontimg').on("click", function() {
                 $('#treeguys').css({'margin-left': "-10000px", 'margin-top': "10000px"});
                 $('#guystree').css({'margin-left': "10000px", 'margin-top': "-10000px"});
-                $("#cathedral").css("position", "absolute").delay(2000).css('transform', 'scale(1)');
+                $("#cathedral").css("position", "absolute").delay(2000).css('transform', 'scale(.8)');
 
             });
 
+            $('.winder').on('click', function() {
+                let thisguy = $(this);
+                $(this).css('opacity', 0).siblings('img').embiggen("10vh", "-0vw");
+            });
             //Play/Pause control clicked
             $('.playbutt').on('click', function() {
                 let vidsource = $(this).data('video');
@@ -47,9 +73,14 @@
         <div id="cathedral">
             <div class="top" style="background-image:url('images/gc1.png')"></div>
             <div class="top" style="background-image:url('images/gc2.png')">
-                <img class="playbutt" src="https://placekitten.com/100/100">
+                <img class="winder" src="images/gc2.png">
+
+                <img class="playbutt" src="https://placekitten.com/400/300" data-video="vid1.webm">
             </div>
-            <div class="top" style="background-image:url('images/gc3.png')"></div>
+            <div class="top" style="background-image:url('images/gc3.png')">
+                <img class="winder" src="images/gc3.png" style="width: 17vw">
+                <img class="playbutt" src="https://placekitten.com/320/230" style="width: 13vw" data-video="vid2.webm">
+            </div>
             <div class="mid" style="background-image:url('images/gc4.png')"></div>
             <div class="mid" style="background-image:url('images/gc5.png')"></div>
             <div class="mid" style="background-image:url('images/gc6.png')"></div>
@@ -67,8 +98,8 @@
                     <button class="playbutt" data-video="bunny.MP4">Bunny</button>
         </div>
         <div id="videoframe" class="zoomTarget" data-targetsize="1.6">
-        <video id="videoBG" poster="https://placekitten.com/600/200"" muted loop >
-            <source src="vsc.MP4" type="video/mp4">
+        <video id="videoBG" poster="https://placekitten.com/600/200" muted loop >
+            <source src="video/vid1.webm" type="video/webm">
         </video>
     
 
