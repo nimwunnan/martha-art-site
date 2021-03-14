@@ -31,16 +31,39 @@ body {
     width: 100vw;
 }
 #videoframe {
-
-    left: 45vw;
-    top: 25vh;
-    float: left;
-    position: absolute;
-    /*transform: scale(.4);*/
-    height: 120vh;
-    z-index: 50;
+    transition: transform 3s;
 }
 
+.embiggened {
+    transform: scale(4.1);
+/*    background-color: #000;
+*/    position: relative;
+    z-index: 10000;
+}
+
+#videoframe video {
+    transform: "scale(1)";
+    width: 80%;
+    height: auto !important;
+    margin-top: 10%;
+    margin-left: 7%; 
+}
+
+#close {
+    display: none;
+    text-shadow: 1px 1px 2px #333;
+    color: lightblue;
+    font-style: italic;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 4px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.embiggened #close {
+    display: block;
+}
 #cathedral-container {
 
 
@@ -57,43 +80,83 @@ body {
     top: 10vh;
 }
 
-#cathedral div {
-    background-size: contain;
-    background-repeat: no-repeat;
-    float: left;
-    width: 20vw;
-
-}
-#cathedral div.top {
-    height: 34vw;
-    background-position: bottom left;
-}
-#cathedral div.top img.winder  {
-    width: 20vw;
-    height: 34vw;
-    position: relative;
-    z-index: 1000;
-    transition: opacity 2s;
-    margin-bottom: -15vw;
-    cursor: pointer;
-}
-#cathedral div.top img.playbutt {
-    width: 15vw;
-    height: auto;
+#cathedral div .kitten {
     transition: transform 3s, top 3s, left 3s;
     top: inherit;
     left: inherit;
     position: relative;
     transition-timing-function: ease-out;
 }
+
+#cathedral div img.winder  {
+    position: relative;
+    z-index: 1000;
+    transition: opacity 2s;
+    margin-bottom: -15vw;
+    cursor: pointer;
+}
+
+#cathedral div {
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    width: 20vw;
+}
+
+#cathedral div.top {
+    height: 34vw;
+    background-position: bottom left;
+}
+
+
+
+
+#cathedral div.top img.winder  {
+    width: 20vw;
+    height: 34vw;
+}
+
+#cathedral div.top .kitten {
+    width: 15vw;
+    height: auto;
+}
+
+
 #cathedral div.mid {
     height: 21.5vw;
 }
+
+#cathedral div.mid img.winder  {
+    width: 20vw;
+    height: 21.5vw;
+}
+
+#cathedral div.mid .kitten {
+    width: 12vw;
+    height: auto;
+}
+
+
 #cathedral div.bottom {
     height: 31vw;
     background-position: top left;
 }
+#cathedral div.bottom img.winder  {
+    width: 20vw;
+}
 
-#videoframe img {
-    margin: 45px;
+#cathedral div.bottom .kitten  {
+    height: auto;
+    padding-left: 4vw;
+}
+
+#mute {
+    position: fixed;
+    bottom: 80px;
+    left: 80px;
+    text-shadow: 1px 1px 2px #333;
+    color: lightblue;
+    font-style: italic;
+    font-size: 30px;
+    font-weight: bold;
 }
