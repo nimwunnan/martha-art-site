@@ -9,11 +9,9 @@
         $(document).ready(function () { 
             var video = $("#videoBG");
             $('.frontimg').on("click", function() {
-                $('#treeguys').css('margin-left', "-10000px");
-                $('#guystree').css('margin-left', "10000px");
-                $('#treeguys').css('margin-top', "10000px");
-                $('#guystree').css('margin-top', "-10000px");
-                $("#cathedral").css({'transform' : "scale(1)"});
+                $('#treeguys').css({'margin-left': "-10000px", 'margin-top': "10000px"});
+                $('#guystree').css({'margin-left': "10000px", 'margin-top': "-10000px"});
+                $("#cathedral").css("position", "absolute").delay(2000).css('transform', 'scale(1)');
 
             });
 
@@ -46,10 +44,11 @@
         <img class="frontimg" id="treeguys" src="images/treeguys.gif">
         <img class="frontimg" id="guystree" src="images/guystree.gif">
 
-
         <div id="cathedral">
             <div class="top" style="background-image:url('images/gc1.png')"></div>
-            <div class="top" style="background-image:url('images/gc2.png')"></div>
+            <div class="top" style="background-image:url('images/gc2.png')">
+                <img class="playbutt" src="https://placekitten.com/100/100">
+            </div>
             <div class="top" style="background-image:url('images/gc3.png')"></div>
             <div class="mid" style="background-image:url('images/gc4.png')"></div>
             <div class="mid" style="background-image:url('images/gc5.png')"></div>
@@ -68,14 +67,16 @@
                     <button class="playbutt" data-video="bunny.MP4">Bunny</button>
         </div>
         <div id="videoframe" class="zoomTarget" data-targetsize="1.6">
+        <video id="videoBG" poster="https://placekitten.com/600/200"" muted loop >
+            <source src="vsc.MP4" type="video/mp4">
+        </video>
+    
+
+        </div>
               <img src="https://placekitten.com/200/200" class="zoomTarget" data-targetsize="1.1">
               <img src="https://placekitten.com/100/200" class="zoomTarget" data-targetsize="1.1">
               <img src="https://placekitten.com/150/200" class="zoomTarget" data-targetsize="1.1">
 
-<!--         <video id="videoBG" poster="lutenim.jpg" muted loop >
-            <source src="vsc.MP4" type="video/mp4">
-        </video>
- -->    
     </div>
 </body>
 </html>

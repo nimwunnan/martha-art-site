@@ -41,17 +41,20 @@ body {
     z-index: 50;
 }
 
+#cathedral-container {
+
+
+}
 #cathedral {
     float: left;
     width: 60vw;
     flex-wrap: wrap;
-    position: fixed;
-    left: 25vw;
-    top: 10vh;
     transition: transform 3s;
     transform: scale(.4);
     transition-timing-function: ease-out;
-
+    position: fixed;
+    left: 25vw;
+    top: 10vh;
 }
 
 #cathedral div {
@@ -64,6 +67,10 @@ body {
 #cathedral div.top {
     height: 34vw;
     background-position: bottom left;
+}
+
+#cathedral div.top img {
+    padding: 85% 0 0 30%;
 }
 #cathedral div.mid {
     height: 21.5vw;
