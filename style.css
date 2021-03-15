@@ -4,6 +4,16 @@ body {
     background-size: cover;
     overflow-x: hidden;
 }
+
+a {
+  cursor: url(images/pointer.png), pointer;
+
+}
+
+.goodcursor {
+   cursor: url(images/pointer.png), pointer;
+
+}
 #textdiv {
     position: fixed;
     z-index: 1000;
@@ -19,12 +29,15 @@ body {
     position: absolute;
     transition: margin-left 5s, margin-top 8s;
     transition-timing-function: ease-in;
+    cursor: url(images/pointer.png), pointer;
+
 }
 #guystree {
     z-index: 1000;
     position: absolute;
     transition: margin-left 5s, margin-top 8s;
     transition-timing-function: ease-in;
+    cursor: url(images/pointer.png), pointer;
 }
 
 .frontimg {
@@ -86,6 +99,8 @@ body {
     left: inherit;
     position: relative;
     transition-timing-function: ease-out;
+    cursor: url(images/pointer.png), pointer;
+
 }
 
 #cathedral div img.winder  {
@@ -93,7 +108,7 @@ body {
     z-index: 1000;
     transition: opacity 2s;
     margin-bottom: -15vw;
-    cursor: pointer;
+    cursor: url(images/pointer.png), pointer;
 }
 
 #cathedral div {
@@ -147,6 +162,7 @@ body {
 
 #cathedral div.bottom .kitten  {
     height: auto;
+    width: 14vw;
     padding-left: 4vw;
 }
 

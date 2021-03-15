@@ -14,7 +14,8 @@
             let z_orig = this.css('z-index');
             let thisguy = this;
             console.log (mtop+" and "+mleft);
-            this.css({"z-index" : 5000, "transform" : 'scale(4)', "cursor" : "pointer"});
+            this.css({"z-index" : 5000, "transform" : 'scale(4)'});
+            this.addClass("goodcursor");
             this.on('click', function() {
                thisguy.css({"z-index" : z_orig, "transform" : 'scale(1)', "left" : mleft_orig, "top" : mtop_orig, });
                thisguy.delay(3000).siblings(".winder").css({'opacity': 1, "z-index": 4999});
@@ -67,6 +68,7 @@
                     video.prop('muted', false);
                     video.prop('controls', true);
                     video[0].load();
+                    toggleSdk();
                     video[0].play();
                 }, 2000);
 
@@ -76,7 +78,6 @@
                 // else {
                 //     video[0].pause();
                 // }
-                toggleSdk();
                 return false;
             });
 
@@ -105,17 +106,17 @@
             <div class="top" style="background-image:url('images/gc2.png')">
                 <img class="winder" src="images/gc2.png">
 
-                <video id="videoBG" class="kitten vid" autoplay muted loop >
+                <video  class="kitten vid" autoplay muted loop >
                     <source src="video/colelady.webm" type="video/webm">
                 </video>
             </div>
             <div class="top" style="background-image:url('images/gc3.png')">
                 <img class="winder playbutt" src="images/gc3.png" style="width: 17vw" data-video="video/shameblush.webm">
-                <img class="kitten" src="https://placekitten.com/200/100" >
+                <img class="kitten" src="images/shameblushstill.jpg" style="width: 11vw; margin-left: 1vw;">
             </div>
             <div class="mid" style="background-image:url('images/gc4.png')">
                 <img class="winder" src="images/gc4.png" style="width: 20vw">
-                <video id="videoBG" class="kitten vid" autoplay muted loop style="margin-left: 4vw;">
+                <video  class="kitten vid" autoplay muted loop style="margin-left: 4vw;">
                     <source src="video/stubbslionhorse.webm" type="video/webm">
                 </video>
 
@@ -126,22 +127,26 @@
             <div class="mid" style="background-image:url('images/gc6.png')">
                 <img class="winder" src="images/gc6.png" style="width: 17vw">
         
-                <video id="videoBG" class="kitten vid" autoplay muted loop >
+                <video  class="kitten vid" autoplay muted loop >
                     <source src="video/bluecurtainsdesolation2.webm" type="video/webm">
                 </video>
 
             </div>
             <div class="bottom" style="background-image:url('images/gc7.png'); margin-top: -3.3vw;" >
                 <img class="winder playbutt" src="images/gc7.png"  data-video="video/nothumansense.webm" >
-                <img class="kitten" src="https://placekitten.com/200/100" >
+                <img class="kitten" src="images/nothumansensestill.jpg" style="width: 13vw;">
            </div>
             <div class="bottom" style="background-image:url('images/gc8.png')">
                 <img class="winder playbutt" src="images/gc8.png" data-video="video/smoothestgreen.webm">
-                <img class="kitten" src="https://placekitten.com/200/100" >
+                <img class="kitten" src="images/smoothestgreenstill.jpg" style="width: 14vw; margin-left: -2vw; margin-top: -2vw;">
 
             </div>
             <div class="bottom" style="background-image:url('images/gc9.png')">
-                
+                <img class="winder" src="images/gc9.png">
+                <video  class="kitten vid" autoplay muted loop style="padding-left: 0px; margin-top: -10vw;">
+                    <source src="video/rainbowgraveyardvamp.webm" type="video/webm">
+                </video>
+
             </div>
 
         </div>
