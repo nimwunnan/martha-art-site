@@ -188,3 +188,18 @@ a {
     font-size: 30px;
     font-weight: bold;
 }
+
+#warning {
+    width: 90vw;
+    height: 100vh;
+    display: none;
+    position: fixed;
+    background: url(images/warning.png) no-repeat;
+    background-size: contain;
+    margin: auto 5vw;
+    z-index: 900000;
+}
+
+#warning p {
+    opacity: 0;
+}

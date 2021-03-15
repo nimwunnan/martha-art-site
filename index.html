@@ -7,6 +7,7 @@
     <!-- <script src="jquery.zoomooz.js"></script> -->
     <script type="text/javascript">
 
+       
         jQuery.fn.embiggen = function (mtop, mleft) {
 
             let mtop_orig = this.css('top');
@@ -23,6 +24,23 @@
         }
         $(document).ready(function () { 
 
+        let wwidth = window.innerWidth < 800;
+
+        let userAgentString = navigator.userAgent;
+        // Detect Chrome 
+        let chromeAgent = userAgentString.indexOf("Chrome") > -1;
+                // Detect Safari 
+        let safariAgent = userAgentString.indexOf("Safari") > -1; 
+
+        // Discard Safari since it also matches Chrome 
+        if ((chromeAgent) && (safariAgent)) safariAgent = false;
+
+        console.log(wwidth);
+        if (safariAgent || wwidth ) {
+            $("#warning").show();
+            $("#warning").on("click", function() { $("#warning").hide();});
+        } 
+
             var sndtrk = $("#soundtrack")[0];
 
             $('.frontimg').on("click", function() {
@@ -37,8 +55,10 @@
                 $('#treeguys').css({'margin-left': "0px", 'margin-top': "0px"});
                 $('#guystree').css({'margin-left': "0px", 'margin-top': "0px"});
                 $("#cathedral").css("position", "fixed").delay(2000).css('transform', 'scale(.2)');
-                $("#retire").hide();
+                $("#retire").delay(10000).hide(function(){
                 toggleSdk();
+
+                });
             });
 
             $('.winder').on('click', function() {
@@ -107,6 +127,10 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
+     <div id="warning" class="goodcursor"><p>
+        It appears that you are visiting this art site on an unsupported browser or device. Please use Firefox or Chrome on a large-screen. Thank you. You may click this to close.</p></div>
+    </div>
+
         <img class="frontimg" id="treeguys" src="images/treeguys.gif">
         <img class="frontimg" id="guystree" src="images/guystree.gif">
 
@@ -170,6 +194,6 @@
         <a href="#" id="mute">mute</a>
 
         <a href="#" id="retire">retire</a>
-    </div>
+
 </body>
 </html>
