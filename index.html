@@ -30,7 +30,15 @@
                 $('#treeguys').css({'margin-left': "-10000px", 'margin-top': "10000px"});
                 $('#guystree').css({'margin-left': "10000px", 'margin-top': "-10000px"});
                 $("#cathedral").css("position", "absolute").delay(2000).css('transform', 'scale(.8)');
+                $("#retire").show();
+            });
 
+            $('#retire').on("click", function() {
+                $('#treeguys').css({'margin-left': "0px", 'margin-top': "0px"});
+                $('#guystree').css({'margin-left': "0px", 'margin-top': "0px"});
+                $("#cathedral").css("position", "fixed").delay(2000).css('transform', 'scale(.2)');
+                $("#retire").hide();
+                toggleSdk();
             });
 
             $('.winder').on('click', function() {
@@ -93,6 +101,7 @@
             $("#mute").on('click', function() { 
                  toggleSdk();
             });
+
         });
     </script>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -159,6 +168,8 @@
             </video>
         </div>
         <a href="#" id="mute">mute</a>
+
+        <a href="#" id="retire">retire</a>
     </div>
 </body>
 </html>
