@@ -1,11 +1,9 @@
 body {
-  overflow: hidden;
-  width: 403.75vh;
-  margin: 0px;
-}
+    background: url('images/bg2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: lightblue;
 
-body.opened {
-  overflow-x: scroll;
 }
 
 a {
@@ -33,9 +31,7 @@ a {
     transition: margin-left 9s, margin-top 8s;
     transition-timing-function: ease;
     cursor: url(images/pointer.png), pointer;
-    height: auto;
-    width: 90vw;
-    top: -50vh;
+
 }
 #guystree {
     z-index: 1000;
@@ -43,18 +39,7 @@ a {
     transition: margin-left 5s, margin-top 8s;
     transition-timing-function: ease;
     cursor: url(images/pointer.png), pointer;
-    height: auto;
-    width: 100vw;
-    top: -50vh;
 }
-
-body.opened .frontimg {
-  display: none;
-  transition: margin-left 3s, margin-top 5s;
-  transition-timing-function: ease;
-
-}
-
 
 .frontimg {
     width: 100vw;
@@ -220,51 +205,37 @@ body.opened .frontimg {
     opacity: 0;
 }
 
+//
 
-/* scrollstuff */
+div#content-wrapper {
+	height: 100%;
+	min-width: 900px;
+	min-height: 500px;
+}
+html.touch div#content-wrapper {
+	min-width: 700px;
+}
+.scrollContainer {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	min-width: 650px;
+	width: 100%;
+}
+.scrollContent {
+	position: relative;
+	/*height: 100%;*/
+}
+section {
+	height: 100vh;
+	position: relative;
+	z-index: 8888;
+}
 
-#frontframe-scroll {
-  width: auto;
+#first-section, #second-section {
+  min-width: 100%;
+  width: 100vw;
   height: 100vh;
-  float: left;
-  z-index: 9999;
 }
-
-#scroll-container {
-  height: 100vh;
-  width: 403.75vh;
-  background: url('images/pano/full-pano-no-floaters.jpg');
-  background-size: cover;
-  overflow-y: hidden;
-  overflow-x: scroll;
-
-}
-
-#scrolllady {
-  position: absolute;
-  margin-left: 120vw;
-  margin-top: 60vh;
-  width: 400px;
-  height: 400px;
-  background: url('images/treelady.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-#scrollorb {
-  position: absolute;
-  margin-left: 135vw;
-  margin-top: 200px;
-  width: 300px;
-  height: 300px;
-  background: url('images/sky-orb.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-
-}
-
-#parallax-section {
-  height: 100vh;
-  margin-left: 100vw;
-  min-width: 150vw;
+.spacer {
+  width: 500px;
 }

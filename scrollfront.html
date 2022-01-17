@@ -3,13 +3,8 @@
     <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <!-- <script src="jquery.zoomooz.js"></script> -->
-    <script type="text/javascript" src="/assets/js/lib/gsap3/gsap.min.js"></script>
-    <script type="text/javascript" src="/scrollmagic/uncompressed/ScrollMagic.js"></script>
-    <script type="text/javascript" src="/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
-    <script type="text/javascript" src="/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
-
     <script type="text/javascript">
 
 
@@ -49,26 +44,20 @@
             var sndtrk = $("#soundtrack")[0];
 
             $('.frontimg').on("click", function() {
-                toggleSdk();
+                // toggleSdk();
                 $('#treeguys').css({'margin-left': "-10000px", 'margin-top': "10000px"});
                 $('#guystree').css({'margin-left': "10000px", 'margin-top': "-10000px"});
-                setTimeout(function(){
-                  $("body").addClass("opened");
-                }, 3000);
                 $("#cathedral").css("position", "absolute").delay(2000).css('transform', 'scale(.8)');
                 $("#retire").show();
             });
 
             $('#retire').on("click", function() {
-                $('#treeguys').css({'margin-left': "-10000px", 'margin-top': "10000px", "display": "block"});
-                $('#guystree').css({'margin-left': "10000px", 'margin-top': "-10000px", "display": "block"});
-
                 $('#treeguys').css({'margin-left': "0px", 'margin-top': "0px"});
                 $('#guystree').css({'margin-left': "0px", 'margin-top': "0px"});
                 $("#cathedral").css("position", "fixed").delay(2000).css('transform', 'scale(.2)');
-                $("#retire").delay(8000).hide(function(){
-                toggleSdk();
-                $("body").removeClass("opened");
+                $("#retire").delay(10000).hide(function(){
+                // toggleSdk();
+
                 });
             });
 
@@ -86,14 +75,14 @@
             var vidTpl = $("#vidjeo video");
 
             function toggleSdk() {
-                //  if( sndtrk.paused) {
-                //      sndtrk.play();
-                //     $("#mute").html("mute");
-                //
-                // } else {
-                //     sndtrk.pause();
-                //      $("#mute").html("un-mute");
-                // }
+                 if( sndtrk.paused) {
+                     sndtrk.play();
+                    $("#mute").html("mute");
+
+                } else {
+                    sndtrk.pause();
+                     $("#mute").html("un-mute");
+                }
             }
             $('.playbutt').on('click', function() {
                 let vidsource = $(this).data('video');
@@ -142,12 +131,9 @@
         It appears that you are visiting this art site on an unsupported browser or device. Please use Firefox or Chrome on a large-screen. Thank you. You may click this to close.</p></div>
     </div>
 
-
         <img class="frontimg" id="treeguys" src="images/treeguys.gif">
         <img class="frontimg" id="guystree" src="images/guystree.gif">
 
-  <section id="cathedral-container">
-      <!-- cathedral -->
         <div id="cathedral">
             <div class="top" style="background-image:url('images/gc1.png')"></div>
             <div class="top" style="background-image:url('images/gc2.png')">
@@ -197,38 +183,6 @@
             </div>
 
         </div>
-      <!-- end cathedral -->
-<!-- scroll container -->
-</section>
-
-  <div id="scroll-container">
-    <script>
-    	var controller = new ScrollMagic.Controller({vertical: false});
-    </script>
-
-    <div id="parallax-section">
-    	<div id="scrolllady">
-      </div>
-      <div id="scrollorb">
-      </div>
-    </div>
-    <script>
-    	// build tween
-    	var tween = new TimelineMax ()
-    		.add([
-    			TweenMax.fromTo("#scrolllady", 1, {right: -400}, {right:350, ease: Linear.easeNone}),
-    			TweenMax.fromTo("#scrollorb", 1, {left: -150}, {left: 175, ease: Linear.easeNone})
-    		]);
-
-    	// build scene
-    	var scene = new ScrollMagic.Scene({triggerElement: "#parallax-section", duration: $(window).width()})
-    					.setTween(tween)
-    					.addTo(controller);
-    </script>
-
-
-  </div>
-      <!-- audio -->
         <audio id="soundtrack" style="display: none;">
             <source src="sndtrk.mp3" type="audio/mpeg">
         </audio>
