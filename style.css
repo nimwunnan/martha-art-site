@@ -254,17 +254,74 @@ body.opened .frontimg {
 #scrollorb {
   position: absolute;
   margin-left: 135vw;
-  margin-top: 200px;
-  width: 300px;
-  height: 300px;
+  margin-top: 15vw;
+  width: 17vw;
+  height: 17vw;
   background: url('images/sky-orb.png');
   background-size: contain;
   background-repeat: no-repeat;
 
 }
 
+#scrollorb a {
+  width: 17.5vw;
+  height: 17.5vw;
+  float: left;
+  border-radius: 50%;
+  font-size: 0px;
+  padding: 100px 0px 100px 0px;
+  text-align: center;
+  margin-top: -10px;
+  margin-left: -15px.
+}
+
+#scrollorb a:hover {
+  text-shadow: 1px 1px 2px #333;
+  color: lightblue;
+  font-style: italic;
+  font-size: 30px;
+  font-weight: bold;
+  box-sizing: border-box;
+  border: 3px solid lightblue;
+}
+
 #parallax-section {
   height: 100vh;
   margin-left: 100vw;
   min-width: 150vw;
+}
+
+/* Library */
+
+#library {
+  background: url(/images/librarybg.png) repeat;
+  background-size: 75%;
+}
+
+#library-frame {
+  background: url(/images/library-frame.png) no-repeat;
+  width: 90vw;
+  height: 90vh;
+  margin: 5vh 5vw;
+  background-size: contain;
+  background-position: center;
+}
+
+#links {
+  width: 40%;
+  margin: auto;
+  padding-top: 20vh;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 15px;
+}
+
+#links a img {
+  width: 12vw;
+}
+
+#homelink {
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }

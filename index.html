@@ -41,7 +41,7 @@
         if ((chromeAgent) && (safariAgent)) safariAgent = false;
 
         console.log(wwidth);
-        if (safariAgent || wwidth ) {
+        if ( wwidth ) {
             $("#warning").show();
             $("#warning").on("click", function() { $("#warning").hide();});
         }
@@ -55,7 +55,7 @@
                 setTimeout(function(){
                   $("body").addClass("opened");
                 }, 3000);
-                $("#cathedral").css("position", "absolute").delay(2000).css('transform', 'scale(.8)');
+                $("#cathedral").css("position", "absolute").delay(2000).css('transform', 'scale(.6)');
                 $("#retire").show();
             });
 
@@ -86,14 +86,14 @@
             var vidTpl = $("#vidjeo video");
 
             function toggleSdk() {
-                //  if( sndtrk.paused) {
-                //      sndtrk.play();
-                //     $("#mute").html("mute");
-                //
-                // } else {
-                //     sndtrk.pause();
-                //      $("#mute").html("un-mute");
-                // }
+                 if( sndtrk.paused) {
+                     sndtrk.play();
+                    $("#mute").html("mute");
+
+                } else {
+                    sndtrk.pause();
+                     $("#mute").html("un-mute");
+                }
             }
             $('.playbutt').on('click', function() {
                 let vidsource = $(this).data('video');
@@ -210,6 +210,7 @@
     	<div id="scrolllady">
       </div>
       <div id="scrollorb">
+        <a href="library">Visit the Library</a>
       </div>
     </div>
     <script>
@@ -217,7 +218,7 @@
     	var tween = new TimelineMax ()
     		.add([
     			TweenMax.fromTo("#scrolllady", 1, {right: -400}, {right:350, ease: Linear.easeNone}),
-    			TweenMax.fromTo("#scrollorb", 1, {left: -150}, {left: 175, ease: Linear.easeNone})
+    			TweenMax.fromTo("#scrollorb", 1, {left: "-20%"}, {left: "43%", ease: Linear.easeNone})
     		]);
 
     	// build scene
