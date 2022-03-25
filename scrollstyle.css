@@ -87,11 +87,10 @@ a {
     width: 60vw;
     flex-wrap: wrap;
     transition: transform 3s;
-    transform: scale(.4);
+    /* transform: scale(.4); */
     transition-timing-function: ease-out;
     position: fixed;
     left: 25vw;
-    top: 10vh;
 }
 
 #cathedral div .kitten {

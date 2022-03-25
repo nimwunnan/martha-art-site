@@ -60,13 +60,14 @@ body.opened .frontimg {
     width: 100vw;
 }
 #videoframe {
-    transition: transform 3s;
+    transition: transform 3s, top 2s, left 2s;
 }
 
 .embiggened {
     transform: scale(4.1);
-/*    background-color: #000;
-*/    position: relative;
+    position: relative;
+    top: 20px;
+    left: 20px;
     z-index: 10000;
 }
 
@@ -80,8 +81,8 @@ body.opened .frontimg {
 
 #close {
     display: none;
-    text-shadow: 1px 1px 2px #333;
-    color: lightblue;
+    text-shadow: 2px 1px 3px black;
+    color: cyan;
     font-style: italic;
     font-size: 30px;
     font-weight: bold;
@@ -90,29 +91,51 @@ body.opened .frontimg {
     font-size: 15px;
 }
 
+
+#videoframe video {
+  mix-blend-mode: normal;
+}
+
+
 .embiggened #close {
     display: block;
+    width: auto;
+    width: 20px;
+    mix-blend-mode: overlay;
+    box-shadow: 0px 0px 10px 10px fuchsia;
+    margin-top: -5px;
+    text-align: center;
 }
+
+.embiggened #close:hover {
+    mix-blend-mode: difference;
+    background: white;
+    box-shadow: 0px 0px 10px 10px cyan;
+    margin-top: -5px;
+    text-align: center;
+}
+
 #cathedral-container {
-
-
+  float: left;
+  position: absolute;
+  height: 100vh;
+  width: 86.25vh;
 }
 #cathedral {
-    float: left;
     width: 60vw;
     flex-wrap: wrap;
     transition: transform 3s;
-    transform: scale(.4);
+    transform: scale(.3);
     transition-timing-function: ease-out;
-    position: fixed;
-    left: -5vw;
+    position: absolute;
+    left: -10vh;
     top: -30vh;
 }
 
 #cathedral div .kitten {
-    transition: transform 3s, top 3s, left 3s;
-    top: inherit;
-    left: inherit;
+    transition: transform 3s, top 2s, left 2s;
+    top: 0px;
+    left: 0px;
     position: relative;
     transition-timing-function: ease-out;
     cursor: url(images/pointer.png), pointer;
@@ -193,6 +216,17 @@ body.opened .frontimg {
     font-weight: bold;
 }
 
+#poem {
+    position: fixed;
+    bottom: 80px;
+    left: 280px;
+    text-shadow: 1px 1px 2px #333;
+    color: lightblue;
+    font-style: italic;
+    font-size: 30px;
+    font-weight: bold;
+}
+
 #retire {
     display: none;
     position: fixed;
@@ -205,12 +239,23 @@ body.opened .frontimg {
     font-weight: bold;
 }
 
+#mute, #retire, #poem {
+  mix-blend-mode: hard-light;
+  background: pink;
+  box-shadow: 0px 0px 10px 10px cyan;
+}
+#mute:hover, #retire:hover, #poem:hover {
+  mix-blend-mode: overlay;
+  box-shadow: 0px 0px 10px 10px fuchsia;
+}
+
+
 #warning {
     width: 90vw;
     height: 100vh;
     display: none;
     position: fixed;
-    background: url(images/warning.png) no-repeat;
+    background: url(images/warning.jpg) no-repeat;
     background-size: contain;
     margin: auto 5vw;
     z-index: 900000;
@@ -242,10 +287,10 @@ body.opened .frontimg {
 
 #scrolllady {
   position: absolute;
-  margin-left: 120vw;
-  margin-top: 60vh;
-  width: 400px;
-  height: 400px;
+  margin-left: 40vw;
+  margin-top: 40vh;
+  width: 600px;
+  height: 600px;
   background: url('images/treelady.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -253,14 +298,47 @@ body.opened .frontimg {
 
 #scrollorb {
   position: absolute;
-  margin-left: 135vw;
-  margin-top: 15vw;
+  margin-left: 200vh;
+  margin-top: 20vh;
   width: 17vw;
   height: 17vw;
   background: url('images/sky-orb.png');
   background-size: contain;
   background-repeat: no-repeat;
 
+}
+
+#scrolltrees {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  background: url('images/fliptreebg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 22vh;
+  opacity: .7;
+}
+
+#scrollloaf {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  background: url('images/loaf-of-trees.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 34vh;
+  opacity: .6;
+}
+
+#scrollglitch {
+  position: absolute;
+  width: 215vh;
+  height: 8vh;
+  background: url('images/skglitchez.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 8.7vh;
+  opacity: .7;
 }
 
 #scrollorb a {
@@ -283,6 +361,7 @@ body.opened .frontimg {
   font-weight: bold;
   box-sizing: border-box;
   border: 3px solid lightblue;
+  box-shadow: 0px 0px 60px 60px lightblue;
 }
 
 #parallax-section {

@@ -17,13 +17,22 @@
 
             let mtop_orig = this.css('top');
             let mleft_orig = this.css('left');
+            let topset = -(Math.abs(this.offset().top)*.3);
+            let leftset = -(Math.abs(this.offset().left)*.5);
+            if (this.position().left < 0) {
+              console.log("left")
+              leftset = Math.abs(this.offset().left);
+            }
+
+            console.log (topset);
+            console.log (leftset);
             let z_orig = this.css('z-index');
             let thisguy = this;
             console.log (mtop+" and "+mleft);
-            this.css({"z-index" : 5000, "transform" : 'scale(4)'});
+            this.css({"z-index" : 5000, "transform" : 'scale(4)', "top" : topset, "left" : leftset});
             this.addClass("goodcursor");
             this.on('click', function() {
-               thisguy.css({"z-index" : z_orig, "transform" : 'scale(1)', "left" : mleft_orig, "top" : mtop_orig, });
+               thisguy.css({"z-index" : z_orig, "transform" : 'scale(1)', "left" : mleft_orig, "top" : mtop_orig});
                thisguy.delay(3000).siblings(".winder").css({'opacity': 1, "z-index": 4999});
             });
         }
@@ -72,13 +81,15 @@
                 });
             });
 
+            // CATHEDRAL
+
             $('.winder').on('click', function() {
                 let thisguy = $(this);
 
 
                 $(this).css('opacity', 0);
                 setTimeout(function(){
-                    thisguy.siblings('.vid').embiggen("10vh", "-0vw");
+                    thisguy.siblings('.vid').embiggen("50%", "20%");
 
                 }, 1000);
             });
@@ -87,7 +98,7 @@
 
             function toggleSdk() {
                  if( sndtrk.paused) {
-                     sndtrk.play();
+                     // sndtrk.play();
                     $("#mute").html("mute");
 
                 } else {
@@ -207,8 +218,12 @@
     </script>
 
     <div id="parallax-section">
-    	<div id="scrolllady">
-      </div>
+      <div id="scrolltrees"></div>
+      <div id="scrollloaf"></div>
+
+      <div id="scrolllady"></div>
+      <div id="scrollglitch"></div>
+
       <div id="scrollorb">
         <a href="library">Visit the Library</a>
       </div>
@@ -218,7 +233,10 @@
     	var tween = new TimelineMax ()
     		.add([
     			TweenMax.fromTo("#scrolllady", 1, {right: -400}, {right:350, ease: Linear.easeNone}),
-    			TweenMax.fromTo("#scrollorb", 1, {left: "-20%"}, {left: "43%", ease: Linear.easeNone})
+          TweenMax.fromTo("#scrolltrees", 1, {left: "140vw"}, {left:"120vw", ease: Linear.easeOut}),
+          TweenMax.fromTo("#scrollloaf", 1, {left: "65vw"}, {left:"95vw", ease: Linear.easeNone}),
+          TweenMax.fromTo("#scrollglitch", 1, {left: "71vw"}, {left:"60vw", ease: Linear.easeNone}),
+    			TweenMax.fromTo("#scrollorb", 1, {left: "0"}, {left: "115vh", ease: Linear.easeNone})
     		]);
 
     	// build scene
@@ -239,6 +257,7 @@
             </video>
         </div>
         <a href="#" id="mute">mute</a>
+        <a href="/poem" id="poem">poem</a>
 
         <a href="#" id="retire">retire</a>
 
