@@ -79,12 +79,14 @@
 							<div class="spacer s0 horiz_trigger"></div>
 							<div class="disablePointerEvents horiz_panel"x>
 								<p>You are done now scroll down</p>
+								<a id="closer">click to proceed</a>
 							</div>
 							<div class="spacer s8"></div>
 
 						</section>
 						</div>
 				</section>
+				<section id="intermission" style="height: 100vh; background-color: aqua;">Spacer section</section>
 				<section class="demo" id="section-wipes">
 					
 
@@ -105,6 +107,11 @@
 
 					<script>
 						$(function () { // wait for document ready
+
+							$("#closer").on("click", function(){ 
+								// $("#sidescroll").hide();
+								$(window).scrollTop($('#intermission').offset().top).scrollLeft($('#intermission').offset().left);
+							});
 							// init
 							var controller = new ScrollMagic.Controller({
 								globalSceneOptions: {
