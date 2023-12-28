@@ -34,22 +34,29 @@
 		.panel.green {
 			margin-bottom: 400px
 		}
+
+
 		.horiz_panel {
-			height: 95vh;
-			width: 95vw;
+			height: 85vh;
+			width: 45vw;
 			display: inline-block;
 			position: relative;
 			border-radius: 8px;
-			border: 0px solid white;
+			border: 0px solid black;
 			vertical-align: middle;
 			padding: 0 5px;
 			opacity: 0;
-			background-color: #fff;
-			margin-left: -47vw;
+			background-color: white;
+			margin-left: -27vw;
+			margin-top: 5vh;
+			transform: rotate(180deg);
+		}
+		.viz {
+			opacity: 1 !important;
 		}
 	</style>
 </head>
-<body>
+<body style="background-image: url(../../images/bg.jpg); background-repeat: no-repeat; background-attachment: fixed;">
 	<ul id="menu"></ul>
 	<div id="content-wrapper">
 		<div id="example-wrapper">
@@ -67,9 +74,9 @@
 								<p>Number 2</p>
 							</div>
 							<div class="spacer s8"></div>
-							<div class="spacer s0 horiz_trigger "></div>
+							<div class="spacer s0 horiz_trigger"></div>
 							<div class="disablePointerEvents horiz_panel">
-								<p>Number 3</p>
+								<p>Number 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam laoreet metus, id elementum tellus vulputate et. Mauris eros est, pulvinar vitae condimentum ac, laoreet tincidunt sem. Proin vel lacus mattis libero varius iaculis. Morbi rutrum porta tristique.</p>
 							</div>
 							<div class="spacer s8"></div>
 							<div class="spacer s0 horiz_trigger "></div>
@@ -87,7 +94,7 @@
 						</div>
 				</section>
 				<section id="intermission" style="height: 100vh; background-color: aqua;">Spacer section</section>
-				<section class="demo" id="section-wipes">
+				<section class="demo" id="section-wipes"">
 					
 
 
@@ -95,9 +102,10 @@
 						<b>ONE</b>
 					</section>
 					<section class="panel transparent">
+						<div style="background-color: bisque; width: 500px; height: 500px;">a thing</div>
 						<b>TWO</b>
 					</section>
-					<section class="panel transparent">
+					<section class="panel red">
 						<b>THREE</b>
 					</section>
 					<section class="panel transparent">
@@ -147,14 +155,18 @@
 //////////
 							var horiz_slides = document.querySelectorAll("div.horiz_panel");
 							var horiz_triggers = document.querySelectorAll("div.horiz_trigger");
-
+							
 							// create scene for every slide
 							for (var i=0; i<horiz_slides.length; i++) {
+
 								new ScrollMagic.Scene({
 										triggerElement: horiz_triggers[i]
 									})
-								
-									.setTween(TweenMax.to(horiz_slides[i], 0.5, {opacity: 1}))
+									// .setTween(TweenMax.to(horiz_slides[i], 0.5, {left: 1}))
+									.setTween(TweenMax.to(horiz_slides[i], 0.5, {rotation: 360, ease: Linear.easeNone}))
+									// .setClassToggle(".horiz_panel", "viz") // add class toggle
+									.setClassToggle(horiz_slides[i], "viz") // add class toggle
+
 									.setPin(horiz_slides[i])
 									.addIndicators() // add indicators (requires plugin)
 									.addTo(controller2);
