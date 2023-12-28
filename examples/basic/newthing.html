@@ -22,72 +22,73 @@
 	<script type="text/javascript" src="../../scrollmagic/uncompressed/ScrollMagic.js"></script>
 	<script type="text/javascript" src="../../scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
 	<script type="text/javascript" src="../../scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+	<style type="text/css">
+		.panel {
+			height: 100%;
+			width: 100%;
+		}
+		#sidescroll {
+			height: 100%;
+			width: 100%;
+		}
+		.panel.green {
+			margin-bottom: 400px
+		}
+		.horiz_panel {
+			height: 95vh;
+			width: 95vw;
+			display: inline-block;
+			position: relative;
+			border-radius: 8px;
+			border: 0px solid white;
+			vertical-align: middle;
+			padding: 0 5px;
+			opacity: 0;
+			background-color: #fff;
+			margin-left: -47vw;
+		}
+	</style>
 </head>
 <body>
 	<ul id="menu"></ul>
 	<div id="content-wrapper">
 		<div id="example-wrapper">
 			<div class="scrollContent">
-				<section id="titlechart">
-					<div id="description">
-						<h1>A Scroll adventure!</h1>
-					</div>
+				<section id="sidescroll" class="transparent">
+					<div id="container2" class="scrollContainer horizontal" style="width: 95vw; height: 95vh;">
+						<section class="demo">
+							<div class="spacer s0 horiz_trigger"></div>
+							<div class="disablePointerEvents horiz_panel">
+								<p>Scroll to the right</p>
+							</div>
+							<div class="spacer s8"></div>
+							<div class="spacer s0 horiz_trigger "></div>
+							<div class="disablePointerEvents horiz_panel">
+								<p>Number 2</p>
+							</div>
+							<div class="spacer s8"></div>
+							<div class="spacer s0 horiz_trigger "></div>
+							<div class="disablePointerEvents horiz_panel">
+								<p>Number 3</p>
+							</div>
+							<div class="spacer s8"></div>
+							<div class="spacer s0 horiz_trigger "></div>
+							<div class="disablePointerEvents horiz_panel">
+								<p>Number 4</p>
+							</div>
+							<div class="spacer s0 horiz_trigger"></div>
+							<div class="disablePointerEvents horiz_panel"x>
+								<p>You are done now scroll down</p>
+							</div>
+							<div class="spacer s8"></div>
+
+						</section>
+						</div>
 				</section>
 				<section class="demo" id="section-wipes">
-					<style type="text/css">
-						.panel {
-							height: 100%;
-							width: 100%;
-						}
-						.panel.green {
-							margin-bottom: 400px
-						}
-						.horiz_panel {
-							height: 95vh;
-							width: 95vw;
-							display: inline-block;
-							position: relative;
-							border-radius: 8px;
-							border: 0px solid white;
-							vertical-align: middle;
-							padding: 0 5px;
-							opacity: 0;
-							background-color: #fff;
-							margin-left: -47vw;
-						}
-					</style>
+					
 
-					<section id="sidescroll" class="panel transparent">
-						<div id="container2" class="scrollContainer horizontal" style="width: 95vw; height: 95vh;">
-							<section class="demo">
-								<div class="spacer s0 horiz_trigger"></div>
-								<div class="disablePointerEvents horiz_panel">
-									<p>Scroll to the right</p>
-								</div>
-								<div class="spacer s8"></div>
-								<div class="spacer s0 horiz_trigger "></div>
-								<div class="disablePointerEvents horiz_panel">
-									<p>Number 2</p>
-								</div>
-								<div class="spacer s8"></div>
-								<div class="spacer s0 horiz_trigger "></div>
-								<div class="disablePointerEvents horiz_panel">
-									<p>Number 3</p>
-								</div>
-								<div class="spacer s8"></div>
-								<div class="spacer s0 horiz_trigger "></div>
-								<div class="disablePointerEvents horiz_panel">
-									<p>Number 4</p>
-								</div>
-								<div class="spacer s0 horiz_trigger"></div>
-								<div class="disablePointerEvents horiz_panel"x>
-									<p>You are done now scroll down</p>
-								</div>
-								<div class="spacer s8"></div>
 
-							</section>
-							</div>
-						</section>
 					<section class="panel transparent">
 						<b>ONE</b>
 					</section>
