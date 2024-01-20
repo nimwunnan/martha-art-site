@@ -4,6 +4,10 @@ body {
   margin: 0px;
 }
 
+* {
+  font-family: 'Cormorant Unicase', serif;
+}
+
 body.opened {
   overflow-x: scroll;
 }
@@ -214,7 +218,8 @@ body.opened .frontimg {
     font-style: italic;
     font-size: 30px;
     font-weight: bold;
-}
+    font-family: 'Cormorant Unicase', serif;
+  }
 
 #poem {
     position: fixed;
@@ -225,6 +230,8 @@ body.opened .frontimg {
     font-style: italic;
     font-size: 30px;
     font-weight: bold;
+    font-family: 'Cormorant Unicase', serif;
+
 }
 
 #retire {
@@ -237,6 +244,8 @@ body.opened .frontimg {
     font-style: italic;
     font-size: 30px;
     font-weight: bold;
+    font-family: 'Cormorant Unicase', serif;
+
 }
 
 #mute, #retire, #poem {
@@ -350,7 +359,9 @@ body.opened .frontimg {
   padding: 100px 0px 100px 0px;
   text-align: center;
   margin-top: -10px;
-  margin-left: -15px.
+  margin-left: -15px.;
+  font-family: 'Cormorant Unicase', serif;
+
 }
 
 #scrollorb a:hover {
@@ -375,6 +386,7 @@ body.opened .frontimg {
 #library {
   background: url(/images/librarybg.png) repeat;
   background-size: 75%;
+
 }
 
 #library-frame {
