@@ -31,7 +31,7 @@
 			width: 100%;
 
 		}
-		.panel.green {
+		.panel {
 			margin-bottom: 400px
 		}
 
@@ -98,10 +98,17 @@
 			text-shadow: 1px 1px 3px blueviolet;
 		}
 
-		#poem-2 p {
+		#poem-2 .poem-contents {
 		    background: rgba(0,0,0,0.5);
+			width: 50%;
+			margin: auto;
+			padding: 5% 2%;
+			border-radius: 25%;
 		}
 		
+		#poem-2 .poem-contents p {
+			font-size: 1.3rem;
+		}
 		/* #TODO: media query for different widths of screen so the text doesn't overflow */
 		.horiz_panel.bg1 .stanza {
 			background-image: url(images/poem/cardbg1.jpeg);
@@ -169,7 +176,7 @@
 					var controller = new ScrollMagic.Controller({
 					globalSceneOptions: {
 						triggerHook: 'onLeave',
-						duration: "200%" // this works just fine with duration 0 as well
+						duration: "100%" // this works just fine with duration 0 as well
 						// However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
 						// Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
 					}
@@ -245,7 +252,7 @@
 					var stanzaId = 'stanza-' + index;
 					var trigId = 'trigger-' + index;
 
-					var stanzaContainer = '<div class="spacer s2" id="' + trigId + '"></div><section id="' + stanzaId + '" class="panel">';
+					var stanzaContainer = '<div class="spacer s2" id="' + trigId + '"></div><section id="' + stanzaId + '" class="panel"><div class="poem-contents">';
 
 					// Iterate through each line in the stanza
 					$.each(stanza.stanza, function (lineIndex, line) {
@@ -261,7 +268,7 @@
 						stanzaContainer += $paragraph[0].outerHTML;
 					});
 
-					stanzaContainer += '</section><div class="spacer s1"></div>';
+					stanzaContainer += '</div></section><div class="spacer s1"></div>';
 
 					// Append the stanza container to the main container (poem-1)
 					$('#poem-2').append(stanzaContainer);
@@ -270,13 +277,12 @@
 					// bgCounter = bgCounter % 3 + 1;
 
 					// Create a ScrollMagic scene for the new stanza
-					var stanz = '#' + stanzaId;
+					var stanz = '#' + stanzaId + " .poem-contents";
 					var trig = '#' + trigId;
 
 					var scene = new ScrollMagic.Scene({
 						triggerElement: trig,
-						duration: 300 
-						// Use the unique ID as the trigger
+ 						// Use the unique ID as the trigger
 						})
 						.setPin(stanz, {pushFollowers: true})
 						.addTo(controller);
