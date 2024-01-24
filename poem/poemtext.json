@@ -1,5 +1,11 @@
 [
     {
+        "stanza": [
+          {"line": "A Poem", "year": null},
+          {"line": " ", "year": "scroll right"}
+        ]
+      },
+    {
       "stanza": [
         {"line": "Perchance when you are wandering forth", "year": null},
         {"line": "Most poet-like where brooks and flowery weeds", "year": null},

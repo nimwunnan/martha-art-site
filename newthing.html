@@ -49,49 +49,66 @@
 			background-size: cover;
 			background-repeat: no-repeat;
 		}
+
+		#intermission div {
+			width: 50%;
+			padding: 12% 5%;
+			margin: auto;
+		}
+		#intermission p {
+			font-size: 1.5rem;
+			line-height: 2rem;
+			background-color: black;
+			padding: .2rem;
+			text-align: center;
+
+
+		}
 		.horiz_panel {
 			height: 85vh;
 			width: 45vw;
 			display: inline-block;
 			position: relative;
 			vertical-align: middle;
-			padding: 0 5px;
+			padding: 5vh 5px 0px;
 			opacity: 0;
+			margin-left: -25vw;
 			background-color: transparent;
-			margin-left: -27vw;
-			margin-top: 5vh;
-			transform: rotate(180deg);
+			/* transform: rotate(180deg); */
 
-			background-size: contain;
-			background-repeat: no-repeat;
-			background-attachment: fixed;
+			
 		}
 		.stanza {
-			padding: 24% 5% 18% 15%;
+			padding: 13vh 6vw;
 			box-sizing: border-box;
-			width: 80%;
+			height: 85vh;
+			width: 45vw;
+			background-size: contain;
+			background-repeat: no-repeat;
+			margin-top: 5vh;
+
 		}
-		.stanza p {
+		.stanza p, * p {
 			display: inherit;
 			white-space: normal;
 			color: wheat;
-			font-size: 1.2vw;
+			font-size: 1vw;
 			line-height: 1.3vw;
 			font-family: 'Cormorant Unicase', serif;
 			text-shadow: 1px 1px 3px blueviolet;
 		}
 		
 		/* #TODO: media query for different widths of screen so the text doesn't overflow */
-		.horiz_panel:nth-child(1n+1){
-			background-image: url(../../images/poem/cardbg1.jpeg);
+		.horiz_panel.bg1 .stanza {
+			background-image: url(images/poem/cardbg1.jpeg);
 			
 		}
-		.horiz_panel:nth-child(2n+1){
-			background-image: url(../../images/poem/cardbg2.jpeg);
+		.horiz_panel.bg2 .stanza {
+			background-image: url(images/poem/cardbg2.jpeg);
 			
 		}
-		.horiz_panel:nth-child(3n+1){
-			background-image: url(../../images/poem/cardbg3.jpeg);
+		.horiz_panel.bg3 .stanza {
+			background-image: url(images/poem/cardbg3.jpeg);
 			
 		}
 
@@ -99,12 +116,8 @@
 			opacity: 1 !important;
 		}
 
-		@media only screen and (min-width: 1000px) {
-			.stanza p {
+		@media only screen and (min-width: 1500px) {
 
-			/* font-size: 1.65rem;
-			line-height: 2.4rem; */
-			}
 		}
 	</style>
 	<script>
@@ -129,10 +142,16 @@
 						</section>
 						</div>
 				</section>
-				<section id="intermission">Spacer section</section>
-				<section class="demo" id="section-wipes"">
-					
-
+				<section id="intermission">
+					<div>
+						<p>there is a blankness that is structural <sup>2009</sup></p>
+						<p>of crystal-clear glass, thin as a bubble <sup>1956</sup></p>
+						<p>The pool becomes a mirror; and behold <sup>1802</sup></p>
+						<p>an illusory window into depth <sup>2003</sup></p>
+						<p>As ocean's moon looks on the moon in heaven. <sup>1816</sup></p>	
+					</div>
+				</section>
+				<section class="demo" id="poem-2"">
 
 					<section class="panel transparent">
 						<b>ONE</b>
@@ -149,111 +168,163 @@
 					</section>
 					
 
-					<script>
-$(function () { 
-// Load JSON from file
-			$(document).ready(function () {
-				// Initialize ScrollMagic controller
-				var controller = new ScrollMagic.Controller();
-				var controller2 = new ScrollMagic.Controller({container: "#container2", vertical: false});
-
-				// Load JSON from file
-				$.getJSON('poem/poemtext.json', function (data) {
-					// Counter for adding bg classes
-					var bgCounter = 1;
-
-					// Iterate through each stanza in the JSON
-					$.each(data, function (index, stanza) {
-						// Create a new container for each stanza with a unique ID
-						var stanzaId = 'stanza-' + index;
-						var hpanelId = 'hpanel-' + index;
-						var $stanzaContainer = $(
-							'<div id="' + stanzaId + '" class="spacer s0 horiz_trigger"></div>' +
-							'<div id="' + hpanelId + '" class="disablePointerEvents horiz_panel">' +
-							'<div class="stanza"></div>' +
-							'</div><div class="spacer s8"></div>'
-						);
-
-						// Add bg classes to the stanza container
-						$stanzaContainer.find('.stanza').addClass('bg' + bgCounter);
-
-						// Increment the counter for the next stanza
-						bgCounter = bgCounter % 3 + 1;
-
-						// Iterate through each line in the stanza
-						$.each(stanza.stanza, function (lineIndex, line) {
-							// Create a new paragraph element
-							var $paragraph = $('<p></p>');
-
-							// Add the line text to the paragraph
-							$paragraph.text(line.line);
-
-							// If the line has a year, add it inside a sup tag
-							if (line.year) {
-								$paragraph.append('<sup>' + line.year + '</sup>');
-							}
-
-							// Append the paragraph to the stanza container
-							$stanzaContainer.find('.stanza').append($paragraph);
-						});
-
-						// Append the stanza container to the main container (poem-1)
-						$('#poem-1').append($stanzaContainer);
-
-						// Create a ScrollMagic scene for the new stanza
-						var stanz = '#' + stanzaId;
-						var hpanel = '#' + hpanelId;
-
-						var scene = new ScrollMagic.Scene({
-								triggerElement: stanz, // Use the unique ID as the trigger
-								}).setTween(TweenMax.to(hpanel, 0.5, {rotation: 360, ease: Linear.easeNone}))
-								// .setClassToggle(".horiz_panel", "viz") // add class toggle
-								.setClassToggle(hpanel, "viz") // add class toggle
-								.setPin(hpanel)
-								.addTo(controller2);
-
-								controller2.update(true);
-
-				});
-
-					});
-
-											
-					$("#closer").on("click", function(){ 
-						// $("#sidescroll").hide();
-						$(window).scrollTop($('#intermission').offset().top).scrollLeft($('#intermission').offset().left);
-					});
-					// init
-					var controller = new ScrollMagic.Controller({
-						globalSceneOptions: {
-							triggerHook: 'onLeave',
-							duration: "100%" // this works just fine with duration 0 as well
-							// However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
-							// Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
-						}
-					});
-
-					// get all slides
-					var slides = document.querySelectorAll("section.panel");
-
-					// create scene for every slide
-					for (var i=0; i<slides.length; i++) {
-						new ScrollMagic.Scene({
-								triggerElement: slides[i]
-							})
-							.setPin(slides[i], {pushFollowers: true})
-							.addTo(controller);
-					}
-
-
 									
-				});
-			});
-		
-					</script>				
 			</section>
 			</div>
 		</div>
 	</div>
 </body>
+<script>
+	$(function () { 
+		$(document).ready(function () {
+			// Initialize ScrollMagic controller
+			var controller = new ScrollMagic.Controller();
+			var controller2 = new ScrollMagic.Controller({container: "#container2", vertical: false});
+		
+			// Load JSON for first section
+
+			$.getJSON('poem/poemtext.json', function (data) {
+				// Counter for adding bg classes
+				var bgCounter = 1;
+
+				// Iterate through each stanza in the JSON
+				$.each(data, function (index, stanza) {
+					// Create a new container for each stanza with a unique ID
+					var stanzaId = 'stanza-' + index;
+					var hpanelId = 'hpanel-' + index;
+					var $stanzaContainer = $(
+						'<div id="' + stanzaId + '" class="spacer s0 horiz_trigger"></div>' +
+						'<div id="' + hpanelId + '" class="disablePointerEvents horiz_panel">' +
+						'<div class="stanza"></div>' +
+						'</div><div class="spacer s8"></div>'
+					);
+
+					// Iterate through each line in the stanza
+					$.each(stanza.stanza, function (lineIndex, line) {
+						// Create a new paragraph element
+						var $paragraph = $('<p></p>');
+						// Add the line text to the paragraph
+						$paragraph.text(line.line);
+						// If the line has a year, add it inside a sup tag
+						if (line.year) {
+							$paragraph.append('<sup>' + line.year + '</sup>');
+						}
+						// Append the paragraph to the stanza container
+						$stanzaContainer.find('.stanza').append($paragraph);
+					});
+
+					// Append the stanza container to the main container (poem-1)
+					$('#poem-1').append($stanzaContainer);
+					$("#" + hpanelId).addClass('bg' + bgCounter);
+
+					// Increment the counter for the next stanza
+					bgCounter = bgCounter % 3 + 1;
+
+					// Create a ScrollMagic scene for the new stanza
+					var stanz = '#' + stanzaId;
+					var hpanel = '#' + hpanelId;
+
+					var scene = new ScrollMagic.Scene({
+						triggerElement: stanz, // Use the unique ID as the trigger
+						}).setTween(TweenMax.to(hpanel, 0.5, {opacity: 1, ease: Linear.easeNone}))
+						// .setClassToggle(".horiz_panel", "viz") // add class toggle
+						// .setClassToggle(hpanel, "viz") // add class toggle
+						.setPin(hpanel)
+						.addTo(controller2);
+
+						controller2.update(true);
+
+				});
+
+			});
+
+			// second section
+
+			$.getJSON('poem/poemtext2.json', function (data) {
+				// Counter for adding bg classes
+				// var bgCounter = 1;
+
+				// Iterate through each stanza in the JSON
+				$.each(data, function (index, stanza) {
+					// Create a new container for each stanza with a unique ID
+					var stanzaId = 'stanza-' + index;
+	
+					var $stanzaContainer = $(
+					'<section id="' + stanzaId + '" class="panel transparent"></section'
+					);
+
+					// Iterate through each line in the stanza
+					$.each(stanza.stanza, function (lineIndex, line) {
+						// Create a new paragraph element
+						var $paragraph = $('<p></p>');
+						// Add the line text to the paragraph
+						$paragraph.text(line.line);
+						// If the line has a year, add it inside a sup tag
+						if (line.year) {
+							$paragraph.append('<sup>' + line.year + '</sup>');
+						}
+						// Append the paragraph to the stanza container
+						$stanzaContainer.append($paragraph);
+					});
+
+					// Append the stanza container to the main container (poem-1)
+					$('#poem-1').append($stanzaContainer);
+					$("#" + hpanelId).addClass('bg' + bgCounter);
+
+					// Increment the counter for the next stanza
+					bgCounter = bgCounter % 3 + 1;
+
+					// Create a ScrollMagic scene for the new stanza
+					var stanz = '#' + stanzaId;
+					var hpanel = '#' + hpanelId;
+
+					var scene = new ScrollMagic.Scene({
+						triggerElement: stanz, // Use the unique ID as the trigger
+						}).setTween(TweenMax.to(hpanel, 0.5, {opacity: 1, ease: Linear.easeNone}))
+						// .setClassToggle(".horiz_panel", "viz") // add class toggle
+						// .setClassToggle(hpanel, "viz") // add class toggle
+						.setPin(hpanel)
+						.addTo(controller2);
+
+						controller2.update(true);
+
+				});
+
+			});
+				
+										
+				$("#closer").on("click", function(){ 
+					// $("#sidescroll").hide();
+					$(window).scrollTop($('#intermission').offset().top).scrollLeft($('#intermission').offset().left);
+				});
+
+
+				// init
+				var controller = new ScrollMagic.Controller({
+					globalSceneOptions: {
+						triggerHook: 'onLeave',
+						duration: "100%" // this works just fine with duration 0 as well
+						// However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
+						// Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
+					}
+				});
+
+				// get all slides
+				var slides = document.querySelectorAll("section.panel");
+
+				// create scene for every slide
+				for (var i=0; i<slides.length; i++) {
+					new ScrollMagic.Scene({
+							triggerElement: slides[i]
+						})
+						.setPin(slides[i], {pushFollowers: true})
+						.addTo(controller);
+				}
+
+
+								
+			});
+		});
+			
+	</script>
 </html>
