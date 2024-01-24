@@ -97,6 +97,10 @@
 			font-family: 'Cormorant Unicase', serif;
 			text-shadow: 1px 1px 3px blueviolet;
 		}
+
+		#poem-2 p {
+		    background: rgba(0,0,0,0.5);
+		}
 		
 		/* #TODO: media query for different widths of screen so the text doesn't overflow */
 		.horiz_panel.bg1 .stanza {
@@ -138,7 +142,7 @@
 			<div class="scrollContent">
 				<section id="sidescroll">
 					<div id="container2" class="scrollContainer horizontal" style="width: 100vw; height: 100vh;">
-						<section class="demo" id="poem-1">
+						<section class="demo" id="poem-1" >
 						</section>
 						</div>
 				</section>
@@ -151,25 +155,8 @@
 						<p>As ocean's moon looks on the moon in heaven. <sup>1816</sup></p>	
 					</div>
 				</section>
-				<section class="demo" id="poem-2"">
-
-					<section class="panel transparent">
-						<b>ONE</b>
-					</section>
-					<section class="panel transparent">
-						<div style="background-color: whitesmoke; opacity: .5; width: 500px; height: 500px;">a thing</div>
-						<b>TWO</b>
-					</section>
-					<section class="panel transparent" style="background-color: whitesmoke; opacity: .5;">
-						<b>THREE</b>
-					</section>
-					<section class="panel transparent">
-						<b>FOUR</b>
-					</section>
-					
-
-									
-			</section>
+					<section class="demo" id="poem-2"">								
+					</section>	
 			</div>
 		</div>
 	</div>
@@ -178,7 +165,15 @@
 	$(function () { 
 		$(document).ready(function () {
 			// Initialize ScrollMagic controller
-			var controller = new ScrollMagic.Controller();
+					// init
+					var controller = new ScrollMagic.Controller({
+					globalSceneOptions: {
+						triggerHook: 'onLeave',
+						duration: "200%" // this works just fine with duration 0 as well
+						// However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
+						// Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
+					}
+				});
 			var controller2 = new ScrollMagic.Controller({container: "#container2", vertical: false});
 		
 			// Load JSON for first section
@@ -248,10 +243,9 @@
 				$.each(data, function (index, stanza) {
 					// Create a new container for each stanza with a unique ID
 					var stanzaId = 'stanza-' + index;
-	
-					var $stanzaContainer = $(
-					'<section id="' + stanzaId + '" class="panel transparent"></section'
-					);
+					var trigId = 'trigger-' + index;
+
+					var stanzaContainer = '<div class="spacer s2" id="' + trigId + '"></div><section id="' + stanzaId + '" class="panel">';
 
 					// Iterate through each line in the stanza
 					$.each(stanza.stanza, function (lineIndex, line) {
@@ -264,30 +258,29 @@
 							$paragraph.append('<sup>' + line.year + '</sup>');
 						}
 						// Append the paragraph to the stanza container
-						$stanzaContainer.append($paragraph);
+						stanzaContainer += $paragraph[0].outerHTML;
 					});
 
+					stanzaContainer += '</section><div class="spacer s1"></div>';
+
 					// Append the stanza container to the main container (poem-1)
-					$('#poem-1').append($stanzaContainer);
-					$("#" + hpanelId).addClass('bg' + bgCounter);
+					$('#poem-2').append(stanzaContainer);
 
 					// Increment the counter for the next stanza
-					bgCounter = bgCounter % 3 + 1;
+					// bgCounter = bgCounter % 3 + 1;
 
 					// Create a ScrollMagic scene for the new stanza
 					var stanz = '#' + stanzaId;
-					var hpanel = '#' + hpanelId;
+					var trig = '#' + trigId;
 
 					var scene = new ScrollMagic.Scene({
-						triggerElement: stanz, // Use the unique ID as the trigger
-						}).setTween(TweenMax.to(hpanel, 0.5, {opacity: 1, ease: Linear.easeNone}))
-						// .setClassToggle(".horiz_panel", "viz") // add class toggle
-						// .setClassToggle(hpanel, "viz") // add class toggle
-						.setPin(hpanel)
-						.addTo(controller2);
-
-						controller2.update(true);
-
+						triggerElement: trig,
+						duration: 300 
+						// Use the unique ID as the trigger
+						})
+						.setPin(stanz, {pushFollowers: true})
+						.addTo(controller);
+						controller.update(true);
 				});
 
 			});
@@ -297,31 +290,6 @@
 					// $("#sidescroll").hide();
 					$(window).scrollTop($('#intermission').offset().top).scrollLeft($('#intermission').offset().left);
 				});
-
-
-				// init
-				var controller = new ScrollMagic.Controller({
-					globalSceneOptions: {
-						triggerHook: 'onLeave',
-						duration: "100%" // this works just fine with duration 0 as well
-						// However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
-						// Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
-					}
-				});
-
-				// get all slides
-				var slides = document.querySelectorAll("section.panel");
-
-				// create scene for every slide
-				for (var i=0; i<slides.length; i++) {
-					new ScrollMagic.Scene({
-							triggerElement: slides[i]
-						})
-						.setPin(slides[i], {pushFollowers: true})
-						.addTo(controller);
-				}
-
-
 								
 			});
 		});
