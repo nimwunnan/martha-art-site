@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=500" />
 	<meta name="keywords" content="ScrollMagic, example, scrolling, attaching, scrollbar, anchor, link, in-page, navigation, hash" />
 	<meta name="author"	content="Jan Paepke (www.janpaepke.de)" />
-	<title>Section Wipes (natural) - Examples - ScrollMagic</title>
+	<title>°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° A poem °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°</title>
 
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic|Josefin+Slab:400,700italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/assets/css/normalize.css" type="text/css">
@@ -36,7 +36,7 @@
 		}
 
 		#container2 {
-			background-image: url(../../images/poem/bg1.jpeg);
+			background-image: url(/images/poem/bg1.jpeg);
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-attachment: fixed;
@@ -45,7 +45,7 @@
 		#intermission {
 			width: 100vw;
 			height: 48vw;
-			background-image: url(../../images/poem/bg2.jpeg);
+			background-image: url(/images/poem/bg2.jpeg);
 			background-size: cover;
 			background-repeat: no-repeat;
 		}
@@ -66,29 +66,32 @@
 		}
 		.horiz_panel {
 			height: 85vh;
-			width: 45vw;
+			width: 100vw;
 			display: inline-block;
 			position: relative;
 			vertical-align: middle;
 			padding: 5vh 5px 0px;
 			opacity: 0;
-			margin-left: -25vw;
 			background-color: transparent;
 			/* transform: rotate(180deg); */
 
 		}
 
 		.horiz_panel.thing0 {
-			background-color: aqua;
+			background-image: url('/images/poem/skully1.png');
+			background-position: right center;
+			background-repeat: no-repeat;
+			background-size: contain
 		}
 		.horiz_panel.thing1 {
-			background-color: rgb(195, 255, 0);
+			background-image: url('/images/poem/skully2.png');
+			background-position: right top;
+			background-repeat: no-repeat;
 		}
 		.horiz_panel.thing2 {
-			background-color: rgb(21, 0, 255);
 		}
 
-		.stanza {
+		.horiz_panel .stanza {
 			padding: 13vh 6vw;
 			box-sizing: border-box;
 			height: 85vh;
@@ -96,24 +99,39 @@
 			background-size: contain;
 			background-repeat: no-repeat;
 			margin-top: 5vh;
+			margin-left: -25vw;
+
 
 		}
 
-		#poem-2 .panel.thing0 {
-			background-image: url('panelthing1.png');
+		#poem-2 .panel {
 			background-repeat: no-repeat;
-			background-position: 20px 20px;
+			background-size: contain;
+
+		}
+		#poem-2 .panel.thing0 {
+			background-image: url('/images/poem/panelthing1.png');
+			background-position: left center;
+
 		}
 		#poem-2 .panel.thing1 {
-			background-color: rgb(195, 255, 0);
+			background-image: url('/images/poem/panelthing2.png');
+			background-position: right center;
+
 		}
 		#poem-2 .panel.thing2 {
-			background-color: rgb(21, 0, 255);
+			background-image: url('/images/poem/panelthing3.png');
+			background-position: left center;
+		}
+		#poem-2 .panel.thing3 {
+			background-image: url('/images/poem/panelthing4.png');
+			background-position: right center;
+		}
+		#poem-2 .panel.thing4 {
+			background-image: url('/images/poem/panelthing5.png');
+			background-position: left center;
 		}
 
-		#poem-2 .panel.thing3 {
-			background-color: rgb(247, 240, 246);
-		}
 
 		.stanza p, * p {
 			display: inherit;
@@ -138,15 +156,15 @@
 		}
 		/* #TODO: media query for different widths of screen so the text doesn't overflow */
 		.horiz_panel.bg1 .stanza {
-			background-image: url(images/poem/cardbg1.jpeg);
+			background-image: url(/images/poem/cardbg1.jpeg);
 			
 		}
 		.horiz_panel.bg2 .stanza {
-			background-image: url(images/poem/cardbg2.jpeg);
+			background-image: url(/images/poem/cardbg2.jpeg);
 			
 		}
 		.horiz_panel.bg3 .stanza {
-			background-image: url(images/poem/cardbg3.jpeg);
+			background-image: url(/images/poem/cardbg3.jpeg);
 			
 		}
 
@@ -241,7 +259,7 @@
 			};
 			// Load JSON for first section
 
-			$.getJSON('poem/poemtext.json', function (data) {
+			$.getJSON('poemtext.json', function (data) {
 				// Counter for adding bg classes
 				var bgCounter = 1;
 
@@ -307,15 +325,15 @@
 
 			// second section
 
-			$.getJSON('poem/poemtext2.json', function (data) {
+			$.getJSON('poemtext2.json', function (data) {
 				// Counter for adding bg classes
 				// var bgCounter = 1;
-				generateRandomStanzas(data.length, 4);
+				generateRandomStanzas(data.length, 5);
 
 				// Iterate through each stanza in the JSON
 				$.each(data, function (index, stanza) {
 					// Create a new container for each stanza with a unique ID
-					var stanzaId = 'stanza-' + index;
+					var stanzaId = 'stanzapanel-' + index;
 					var trigId = 'trigger-' + index;
 
 					var stanzaContainer = '<div class="spacer s2" id="' + trigId + '"></div><section id="' + stanzaId + '" class="panel"><div class="poem-contents">';
