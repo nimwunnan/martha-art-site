@@ -209,54 +209,45 @@ body.opened .frontimg {
     padding-left: 4vw;
 }
 
-#mute {
-    position: fixed;
-    bottom: 80px;
-    left: 80px;
-    text-shadow: 1px 1px 2px #333;
-    color: lightblue;
-    font-style: italic;
-    font-size: 30px;
-    font-weight: bold;
-    font-family: 'Cormorant Unicase', serif;
-  }
-
-#poem {
-    position: fixed;
-    bottom: 80px;
-    left: 280px;
-    text-shadow: 1px 1px 2px #333;
-    color: lightblue;
-    font-style: italic;
-    font-size: 30px;
-    font-weight: bold;
-    font-family: 'Cormorant Unicase', serif;
-
+#bottom-nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 6%;
+  box-sizing: border-box;
+  background-image: url(/images/nav-bar.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  min-height: 60px;
+  bottom: 0px;
 }
 
-#retire {
-    display: none;
-    position: fixed;
-    bottom: 80px;
-    right: 80px;
-    text-shadow: 1px 1px 2px #333;
-    color: lightblue;
-    font-style: italic;
-    font-size: 30px;
-    font-weight: bold;
-    font-family: 'Cormorant Unicase', serif;
-
-}
-
-#mute, #retire, #poem {
+#bottom-nav a {
+  display: inline-block;
   mix-blend-mode: hard-light;
-  background: pink;
-  box-shadow: 0px 0px 10px 10px cyan;
+  border-radius: 9px;
+  text-shadow: 1px 1px 4px cyan;
+  color: wheat;
+  font-style: italic;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Cormorant Unicase', serif;
+  height: 2rem;
+  margin: 1rem;
+  /* text-shadow: 0px 0px 10px 10px blueviolet; */
+  text-decoration: none;
+
 }
-#mute:hover, #retire:hover, #poem:hover {
+
+#bottom-nav a:nth-child(2) {
+  margin-left: 16vw;
+}
+#bottom-nav a:hover {
   mix-blend-mode: overlay;
-  box-shadow: 0px 0px 10px 10px fuchsia;
+  /* box-shadow: 0px 0px 10px 10px cyan; */
 }
+
 
 
 #warning {

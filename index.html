@@ -158,7 +158,11 @@
 
         <img class="frontimg" id="treeguys" src="images/treeguys.gif">
         <img class="frontimg" id="guystree" src="images/guystree.gif">
-
+        <nav id="bottom-nav">
+            <a href="#" id="mute">mute</a>
+            <a href="/poem" id="poem">poem</a>
+            <a href="#" id="retire">retire</a>    
+        </nav>
   <section id="cathedral-container">
       <!-- cathedral -->
         <div id="cathedral">
@@ -235,9 +239,9 @@
     	var tween = new TimelineMax ()
     		.add([
     			TweenMax.fromTo("#scrolllady", 1, {right: -400}, {right:350, ease: Linear.easeNone}),
-          TweenMax.fromTo("#scrolltrees", 1, {left: "140vw"}, {left:"120vw", ease: Linear.easeOut}),
-          TweenMax.fromTo("#scrollloaf", 1, {left: "65vw"}, {left:"95vw", ease: Linear.easeNone}),
-          TweenMax.fromTo("#scrollglitch", 1, {left: "71vw"}, {left:"60vw", ease: Linear.easeNone}),
+                TweenMax.fromTo("#scrolltrees", 1, {left: "140vw"}, {left:"120vw", ease: Linear.easeOut}),
+                TweenMax.fromTo("#scrollloaf", 1, {left: "65vw"}, {left:"95vw", ease: Linear.easeNone}),
+                TweenMax.fromTo("#scrollglitch", 1, {left: "71vw"}, {left:"60vw", ease: Linear.easeNone}),
     			TweenMax.fromTo("#scrollorb", 1, {left: "0"}, {left: "115vh", ease: Linear.easeNone})
     		]);
 
@@ -258,10 +262,7 @@
                     <source src="" type="video/webm">
             </video>
         </div>
-        <a href="#" id="mute">mute</a>
-        <a href="/poem" id="poem">poem</a>
 
-        <a href="#" id="retire">retire</a>
 
 </body>
 </html>
