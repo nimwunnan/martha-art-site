@@ -77,15 +77,15 @@
 
 		}
 
-		.horiz_panel.thing0 {
+		.scrollmagic-pin-spacer:has(.horiz_panel.thing0, .horiz_panel.thing2) {
 			background-image: url('/images/poem/skully1.png');
 			background-position: right center;
 			background-repeat: no-repeat;
 			background-size: contain
 		}
-		.horiz_panel.thing1 {
+		.scrollmagic-pin-spacer:has(.horiz_panel.thing1, .horiz_panel.thing3) {
 			background-image: url('/images/poem/skully2.png');
-			background-position: right top;
+			background-position: left top;
 			background-repeat: no-repeat;
 		}
 		.horiz_panel.thing2 {
@@ -152,7 +152,8 @@
 		}
 		
 		#poem-2 .poem-contents p {
-			font-size: 1.3rem;
+			font-size: 2.1vh;
+			line-height: auto;
 		}
 		/* #TODO: media query for different widths of screen so the text doesn't overflow */
 		.horiz_panel.bg1 .stanza {
@@ -265,7 +266,7 @@
 
 
 
-				generateRandomStanzas(data.length, 3);
+				generateRandomStanzas(data.length, 4);
 
 
 				// Iterate through each stanza in the JSON
@@ -323,7 +324,7 @@
 
 			});
 
-			// second section
+			//////////////////////////////////////////////////////////////////////// second section
 
 			$.getJSON('poemtext2.json', function (data) {
 				// Counter for adding bg classes
@@ -336,7 +337,7 @@
 					var stanzaId = 'stanzapanel-' + index;
 					var trigId = 'trigger-' + index;
 
-					var stanzaContainer = '<div class="spacer s2" id="' + trigId + '"></div><section id="' + stanzaId + '" class="panel"><div class="poem-contents">';
+					var stanzaContainer = '<div class="spacer s1" id="' + trigId + '"></div><section id="' + stanzaId + '" class="panel"><div class="poem-contents">';
 
 					// Iterate through each line in the stanza
 					$.each(stanza.stanza, function (lineIndex, line) {
