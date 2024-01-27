@@ -46,11 +46,17 @@
     display: inline-block;
     position: relative;
     vertical-align: middle;
-    padding: 5vh 5px 0px;
+    padding: 1vh 5px 0px;
     opacity: 0;
     background-color: transparent;
     /* transform: rotate(180deg); */
 
+}
+
+
+#hpanel-0 .stanza p:nth-child(1) {
+    font-size: 4vh;
+    mix-blend-mode: hard-light;
 }
 
 .scrollmagic-pin-spacer:has(.horiz_panel.thing0, .horiz_panel.thing2) {
@@ -64,8 +70,6 @@
     background-position: left top;
     background-repeat: no-repeat;
 }
-.horiz_panel.thing2 {
-}
 
 .horiz_panel .stanza {
     padding: 13vh 6vw;
@@ -75,7 +79,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     margin-top: 5vh;
-    margin-left: -25vw;
+    margin-left: -17vw;
 
 
 }
@@ -127,6 +131,9 @@
     border-radius: 25%;
 }
 
+#poem-2 .poem-contents:hover {
+    background: rgba(0,0,0,.8);
+}
 #poem-2 .poem-contents p {
     font-size: 2.1vh;
     line-height: 2vh;

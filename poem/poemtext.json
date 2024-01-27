@@ -1,8 +1,8 @@
 [
     {
         "stanza": [
-          {"line": "A Poem", "year": null},
-          {"line": " ", "year": "scroll right"}
+          {"line": "°°°°°°°°°A Poem°°°°°°°°°°°°", "year": null},
+          {"line": " ", "year": "scroll right &#9758;"}
         ]
       },
     {
@@ -170,6 +170,13 @@
             {"line": "Each wildflower on the marge inverted there,", "year": 1802},
             {"line": "underwritten by a more threatening void,", "year": 2009},
             {"line": "representative of no setting at all.", "year": 2021}
+          ]
+        },
+
+        {
+          "stanza": [
+            {"line": "fin", "year": null},
+            {"line": "", "year": "press space bar"}
           ]
         }
           ]
