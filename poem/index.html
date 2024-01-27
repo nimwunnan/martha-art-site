@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="/assets/css/normalize.css" type="text/css">
 	<link rel="stylesheet" href="/assets/css/style.css" type="text/css">
 	<link rel="stylesheet" href="/assets/css/examples.css" type="text/css">
-	<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
 
 	<script type="text/javascript" src="/assets/js/lib/jquery.min.js"></script>
 	<script type="text/javascript" src="/assets/js/lib/highlight.pack.js"></script>
@@ -44,7 +43,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;400;500;600&display=swap" rel="stylesheet"> 
 <body style="background-image: url(../../images/poem/bg3.jpeg); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
-	<ul id="menu"></ul>
+<div id="mobile-warning">
+	<h1>Looks like you're on a mobile device. Turn your phone to portrait mode and click here.</h1>
+	<a href="#" id="destroy">Enter</a>
+</div>
 	<div id="content-wrapper">
 		<div id="example-wrapper">
 			<div class="scrollContent">
@@ -242,6 +244,13 @@
 				$("#closer").on("click", function(){ 
 					// $("#sidescroll").hide();
 					$(window).scrollTop($('#intermission').offset().top).scrollLeft($('#intermission').offset().left);
+				});
+
+				
+			$("#destroy").on("click", function (e) {
+				e.preventDefault();
+				controller2.destroy();
+				$("#mobile-warning").hide();
 				});
 								
 			});
