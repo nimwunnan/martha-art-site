@@ -80,6 +80,7 @@
                 $("#retire").delay(8000).hide(function(){
                 toggleSdk();
                 $("body").removeClass("opened");
+                return false;
                 });
             });
 
@@ -87,8 +88,6 @@
 
             $('.winder').on('click', function() {
                 let thisguy = $(this);
-
-
                 $(this).css('opacity', 0);
                 setTimeout(function(){
                     thisguy.siblings('.vid').embiggen("50%", "20%");
@@ -98,12 +97,22 @@
             //Play/Pause control clicked
             var vidTpl = $("#vidjeo video");
 
-            function toggleSdk() {
-                 if( sndtrk.paused) {
+            function toggleSdk(force) {
+
+
+                console.log("toggled!");
+                 if( sndtrk.paused || force == "on" ) {
                      sndtrk.play();
                     $("#mute").html("mute");
 
-                } else {
+                } else if ( force == "off" ) {
+                    sndtrk.pause();
+                    console.log(force);
+                     $("#mute").html("un-mute");
+                } 
+                else
+                
+                {
                     sndtrk.pause();
                      $("#mute").html("un-mute");
                 }
@@ -120,7 +129,9 @@
                     video.prop('muted', false);
                     video.prop('controls', true);
                     video[0].load();
-                    toggleSdk();
+                    if( !sndtrk.paused ) {
+                        toggleSdk();
+                    }
                     video[0].play();
                 }, 2000);
 
@@ -137,19 +148,23 @@
                 $("#videoframe video").remove();
                 $("#videoframe").removeClass("embiggened");
                 $(".winder").css("opacity", 1);
-                toggleSdk();
-
+                if( !sndtrk.paused ) {
+                        toggleSdk();
+                }
 
             });
 
             $("#mute").on('click', function() {
                  toggleSdk();
+                 return false;
+
             });
 
         });
     </script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
+    <link rel="stylesheet" type="text/css" href="nav.css">
+</head>
     <body>
      <div id="warning" class="goodcursor"><p>
         It appears that you are visiting this art site on an unsupported browser or device. Please use Firefox or Chrome on a large-screen. Thank you. You may click this to close.</p></div>
@@ -158,11 +173,7 @@
 
         <img class="frontimg" id="treeguys" src="images/treeguys.gif">
         <img class="frontimg" id="guystree" src="images/guystree.gif">
-        <nav id="bottom-nav">
-            <a href="#" id="mute">mute</a>
-            <a href="/poem" id="poem">poem</a>
-            <a href="#" id="retire">retire</a>    
-        </nav>
+        
   <section id="cathedral-container">
       <!-- cathedral -->
         <div id="cathedral">
@@ -253,6 +264,11 @@
 
 
   </div>
+    <nav id="bottom-nav">
+        <a href="" id="mute">play</a>
+        <a href="/poem" id="poem">poem</a>
+        <a href="" id="retire">retire</a>    
+    </nav>
       <!-- audio -->
         <audio id="soundtrack" style="display: none;">
             <source src="sndtrk.mp3" type="audio/mpeg">

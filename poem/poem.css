@@ -1,0 +1,154 @@
+.panel {
+    height: 100%;
+    width: 100%;
+}
+#sidescroll {
+    height: 100%;
+    width: 100%;
+
+}
+.panel {
+    margin-bottom: 400px
+}
+
+#container2 {
+    background-image: url(/images/poem/bg1.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#intermission {
+    width: 100vw;
+    height: 48vw;
+    background-image: url(/images/poem/bg2.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#intermission div {
+    width: 50%;
+    padding: 12% 5%;
+    margin: auto;
+}
+#intermission p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    background-color: black;
+    padding: .2rem;
+    text-align: center;
+
+
+}
+.horiz_panel {
+    height: 85vh;
+    width: 100vw;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    padding: 5vh 5px 0px;
+    opacity: 0;
+    background-color: transparent;
+    /* transform: rotate(180deg); */
+
+}
+
+.scrollmagic-pin-spacer:has(.horiz_panel.thing0, .horiz_panel.thing2) {
+    background-image: url('/images/poem/skully1.png');
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain
+}
+.scrollmagic-pin-spacer:has(.horiz_panel.thing1, .horiz_panel.thing3) {
+    background-image: url('/images/poem/skully2.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+.horiz_panel.thing2 {
+}
+
+.horiz_panel .stanza {
+    padding: 13vh 6vw;
+    box-sizing: border-box;
+    height: 85vh;
+    width: 45vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 5vh;
+    margin-left: -25vw;
+
+
+}
+
+#poem-2 .panel {
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+#poem-2 .panel.thing0 {
+    background-image: url('/images/poem/panelthing1.png');
+    background-position: left center;
+
+}
+#poem-2 .panel.thing1 {
+    background-image: url('/images/poem/panelthing2.png');
+    background-position: right center;
+
+}
+#poem-2 .panel.thing2 {
+    background-image: url('/images/poem/panelthing3.png');
+    background-position: left center;
+}
+#poem-2 .panel.thing3 {
+    background-image: url('/images/poem/panelthing4.png');
+    background-position: right center;
+}
+#poem-2 .panel.thing4 {
+    background-image: url('/images/poem/panelthing5.png');
+    background-position: left center;
+}
+
+
+.stanza p, * p {
+    display: inherit;
+    white-space: normal;
+    color: wheat;
+    font-size: 1vw;
+    line-height: 1.3vw;
+    font-family: 'Cormorant Unicase', serif;
+    text-shadow: 1px 1px 3px blueviolet;
+}
+
+#poem-2 .poem-contents {
+    background: rgba(0,0,0,0.5);
+    width: 50%;
+    margin: auto;
+    padding: 5% 2%;
+    border-radius: 25%;
+}
+
+#poem-2 .poem-contents p {
+    font-size: 2.1vh;
+    line-height: 2vh;
+}
+/* #TODO: media query for different widths of screen so the text doesn't overflow */
+.horiz_panel.bg1 .stanza {
+    background-image: url(/images/poem/cardbg1.jpeg);
+    
+}
+.horiz_panel.bg2 .stanza {
+    background-image: url(/images/poem/cardbg2.jpeg);
+    
+}
+.horiz_panel.bg3 .stanza {
+    background-image: url(/images/poem/cardbg3.jpeg);
+    
+}
+
+.viz {
+    opacity: 1 !important;
+}
+
+@media only screen and (min-width: 1500px) {
+
+}

@@ -1,12 +1,247 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<script type="text/javascript">
-  window.location.replace("http://athousandcirclets.garden/poem/athousandcirclets-poem.pdf");
-</script>
-    </head>
-    <body>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=500" />
+	<meta name="keywords" content="ScrollMagic, example, scrolling, attaching, scrollbar, anchor, link, in-page, navigation, hash" />
+	<meta name="author"	content="Jan Paepke (www.janpaepke.de)" />
+	<title>°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° A poem °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°</title>
 
-    </body>
-    </html>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic|Josefin+Slab:400,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/assets/css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/examples.css" type="text/css">
+	<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+	<script type="text/javascript" src="/assets/js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/js/lib/highlight.pack.js"></script>
+	<script type="text/javascript" src="/assets/js/lib/modernizr.custom.min.js"></script>
+	
+	<script type="text/javascript" src="/assets/js/lib/gsap3/gsap.min.js"></script>
+	<script type="text/javascript" src="/scrollmagic/uncompressed/ScrollMagic.js"></script>
+	<script type="text/javascript" src="/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+	<link rel="stylesheet" type="text/css" href="/nav.css">
+	<link rel="stylesheet" type="text/css" href="poem.css">
+
+	<script>
+/* 
+	hi thanks for looking at my code
+	i made this for / with my wife
+	who has been described as an "anarchist polly pocket"
+	and is no fan of rigid structures
+	as such this has been an exercise in
+	slapping code together until it works
+	disregarding "best practices" as I wish
+	and enjoying the freedom that comes with
+	knowning no one else will ever have to deal with it
+	and if they do
+	¯\_(ツ)_/¯
+*/
+	</script>
+</head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;400;500;600&display=swap" rel="stylesheet"> 
+<body style="background-image: url(../../images/poem/bg3.jpeg); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+	<ul id="menu"></ul>
+	<div id="content-wrapper">
+		<div id="example-wrapper">
+			<div class="scrollContent">
+				<section id="sidescroll">
+					<div id="container2" class="scrollContainer horizontal" style="width: 100vw; height: 100vh;">
+						<section class="demo" id="poem-1" >
+						</section>
+						</div>
+				</section>
+				<section id="intermission">
+					<div>
+						<p>there is a blankness that is structural <sup>2009</sup></p>
+						<p>of crystal-clear glass, thin as a bubble <sup>1956</sup></p>
+						<p>The pool becomes a mirror; and behold <sup>1802</sup></p>
+						<p>an illusory window into depth <sup>2003</sup></p>
+						<p>As ocean's moon looks on the moon in heaven. <sup>1816</sup></p>	
+					</div>
+				</section>
+					<section class="demo" id="poem-2"">								
+					</section>	
+			</div>
+		</div>
+	</div>
+	<nav id="bottom-nav">
+        <a id="mute">mute</a>
+        <a href="/poem" id="poem">poem</a>
+        <a href="" id="retire">retire</a>    
+    </nav>
+
+</body>
+<script>
+	$(function () { 
+		$(document).ready(function () {
+			// Initialize ScrollMagic controller
+			// init
+			var controller = new ScrollMagic.Controller({
+			globalSceneOptions: {
+				triggerHook: 'onLeave',
+				duration: "0%" // this works just fine with duration 0 as well
+				// However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
+				// Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
+				}
+			});
+		var controller2 = new ScrollMagic.Controller({container: "#container2", vertical: false});
+
+			// Array to store unique random stanza indices
+			var randomStanzas = [];
+
+			// Function to generate random stanza indices
+			var generateRandomStanzas = function (source, count) {
+			// Clear the array
+			randomStanzas = [];
+
+			// Get the total number of stanzas
+			var totalStanzas = source;
+
+			// Generate unique random numbers
+			while (randomStanzas.length < count) {
+				var randomIndex = Math.floor(Math.random() * totalStanzas);
+				if (!randomStanzas.includes(randomIndex)) {
+					randomStanzas.push(randomIndex);
+					console.log(randomIndex);
+				}
+			}
+			};
+			// Load JSON for first section
+
+			$.getJSON('poemtext.json', function (data) {
+				// Counter for adding bg classes
+				var bgCounter = 1;
+
+
+
+				generateRandomStanzas(data.length, 4);
+
+
+				// Iterate through each stanza in the JSON
+				$.each(data, function (index, stanza) {
+					// Create a new container for each stanza with a unique ID
+					var stanzaId = 'stanza-' + index;
+					var hpanelId = 'hpanel-' + index;
+					var $stanzaContainer = $(
+						'<div id="' + stanzaId + '" class="spacer s0 horiz_trigger"></div>' +
+						'<div id="' + hpanelId + '" class="disablePointerEvents horiz_panel">' +
+						'<div class="stanza"></div>' +
+						'</div><div class="spacer s8"></div>'
+					);
+
+					// Iterate through each line in the stanza
+					$.each(stanza.stanza, function (lineIndex, line) {
+						// Create a new paragraph element
+						var $paragraph = $('<p></p>');
+						// Add the line text to the paragraph
+						$paragraph.text(line.line);
+						// If the line has a year, add it inside a sup tag
+						if (line.year) {
+							$paragraph.append('<sup>' + line.year + '</sup>');
+						}
+						// Append the paragraph to the stanza container
+						$stanzaContainer.find('.stanza').append($paragraph);
+					});
+
+					// Append the stanza container to the main container (poem-1)
+					$('#poem-1').append($stanzaContainer);
+					$("#" + hpanelId).addClass('bg' + bgCounter);
+
+					if (randomStanzas.includes(index)) {
+						var thingclass = "thing" + randomStanzas.indexOf(index);
+             		   $("#" + hpanelId).addClass(thingclass); // Add special class
+					}
+					// Increment the counter for the next stanza
+					bgCounter = bgCounter % 3 + 1;
+
+					// Create a ScrollMagic scene for the new stanza
+					var stanz = '#' + stanzaId;
+					var hpanel = '#' + hpanelId;
+
+					var scene = new ScrollMagic.Scene({
+						triggerElement: stanz, // Use the unique ID as the trigger
+						}).setTween(TweenMax.to(hpanel, 0.5, {opacity: 1, ease: Linear.easeNone}))
+						// .setClassToggle(".horiz_panel", "viz") // add class toggle
+						// .setClassToggle(hpanel, "viz") // add class toggle
+						.setPin(hpanel)
+						.addTo(controller2);
+
+						controller2.update(true);
+
+				});
+
+			});
+
+			//////////////////////////////////////////////////////////////////////// second section
+
+			$.getJSON('poemtext2.json', function (data) {
+				// Counter for adding bg classes
+				// var bgCounter = 1;
+				generateRandomStanzas(data.length, 5);
+
+				// Iterate through each stanza in the JSON
+				$.each(data, function (index, stanza) {
+					// Create a new container for each stanza with a unique ID
+					var stanzaId = 'stanzapanel-' + index;
+					var trigId = 'trigger-' + index;
+
+					var stanzaContainer = '<div class="spacer s1" id="' + trigId + '"></div><section id="' + stanzaId + '" class="panel"><div class="poem-contents">';
+
+					// Iterate through each line in the stanza
+					$.each(stanza.stanza, function (lineIndex, line) {
+						// Create a new paragraph element
+						var $paragraph = $('<p></p>');
+						// Add the line text to the paragraph
+						$paragraph.text(line.line);
+						// If the line has a year, add it inside a sup tag
+						if (line.year) {
+							$paragraph.append('<sup>' + line.year + '</sup>');
+						}
+						// Append the paragraph to the stanza container
+						stanzaContainer += $paragraph[0].outerHTML;
+					});
+
+					stanzaContainer += '</div></section><div class="spacer s1"></div>';
+
+					// Append the stanza container to the main container (poem-2)
+					$('#poem-2').append(stanzaContainer);
+
+
+					if (randomStanzas.includes(index)) {
+						var thingclass = "thing" + randomStanzas.indexOf(index);
+             		   $("#" + stanzaId).addClass(thingclass); // Add special class
+					}
+					// Increment the counter for the next stanza
+					// bgCounter = bgCounter % 3 + 1;
+
+					// Create a ScrollMagic scene for the new stanza
+					var stanz = '#' + stanzaId + " .poem-contents";
+					var trig = '#' + trigId;
+
+					var scene = new ScrollMagic.Scene({
+						triggerElement: trig,
+ 						// Use the unique ID as the trigger
+						})
+						.setPin(stanz, {pushFollowers: true})
+						.addTo(controller);
+						controller.update(true);
+				});
+
+			});
+				
+										
+				$("#closer").on("click", function(){ 
+					// $("#sidescroll").hide();
+					$(window).scrollTop($('#intermission').offset().top).scrollLeft($('#intermission').offset().left);
+				});
+								
+			});
+		});
+			
+	</script>
+</html>

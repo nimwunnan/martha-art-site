@@ -209,44 +209,6 @@ body.opened .frontimg {
     padding-left: 4vw;
 }
 
-#bottom-nav {
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 6%;
-  box-sizing: border-box;
-  background-image: url(/images/nav-bar.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100vw;
-  min-height: 60px;
-  bottom: 0px;
-}
-
-#bottom-nav a {
-  display: inline-block;
-  mix-blend-mode: hard-light;
-  border-radius: 9px;
-  text-shadow: 1px 1px 4px cyan;
-  color: wheat;
-  font-style: italic;
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-family: 'Cormorant Unicase', serif;
-  height: 2rem;
-  margin: 1rem;
-  /* text-shadow: 0px 0px 10px 10px blueviolet; */
-  text-decoration: none;
-
-}
-
-#bottom-nav a:nth-child(2) {
-  margin-left: 16vw;
-}
-#bottom-nav a:hover {
-  mix-blend-mode: overlay;
-  /* box-shadow: 0px 0px 10px 10px cyan; */
-}
 
 
 
