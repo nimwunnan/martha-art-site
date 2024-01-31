@@ -75,11 +75,43 @@
         <a href="/" id="home">home</a>
         <a href="/poem" id="return">return</a>    
     </nav>
-
+      <!-- audio -->
+	  <audio id="soundtrack" style="display: none;" autoplay="true">
+		<source src="/sndtrk.mp3" type="audio/mpeg">
+	</audio>
 </body>
 <script>
 	$(function () { 
 		$(document).ready(function () {
+
+			var sndtrk = $("#soundtrack")[0];
+
+				function toggleSdk(force) {
+
+
+				console.log("toggled!");
+				if( sndtrk.paused || force == "on" ) {
+					sndtrk.play();
+					$("#mute").html("mute");
+
+				} else if ( force == "off" ) {
+					sndtrk.pause();
+					console.log(force);
+					$("#mute").html("un-mute");
+				} 
+				else
+
+				{
+					sndtrk.pause();
+					$("#mute").html("un-mute");
+				}
+				}
+
+				$("#mute").on('click', function() {
+                 toggleSdk();
+                 return false;
+            });
+
 			// Initialize ScrollMagic controller
 			// init
 			var controller = new ScrollMagic.Controller({
@@ -115,6 +147,8 @@
 			// Load JSON for first section
 
 			$.getJSON('poemtext.json', function (data) {
+
+
 				// Counter for adding bg classes
 				var bgCounter = 1;
 

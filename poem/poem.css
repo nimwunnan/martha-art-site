@@ -13,6 +13,12 @@ body {
     width: 100%;
 
 }
+
+.goodcursor, a, #mute {
+    cursor: url(/images/pointer.png), pointer;
+ 
+ }
+
 .panel {
     margin-bottom: 400px
 }
