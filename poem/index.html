@@ -49,6 +49,9 @@
 </div>
 	<div id="content-wrapper">
 		<div id="example-wrapper">
+			<div id="startpoem">
+			<h1><a href="#sidescroll">Click to begin</a></h1>
+			</div>
 			<div class="scrollContent">
 				<section id="sidescroll">
 					<div id="container2" class="scrollContainer horizontal" style="width: 100vw; height: 100vh;">
@@ -71,12 +74,12 @@
 		</div>
 	</div>
 	<nav id="bottom-nav">
-        <a id="mute">mute</a>
+        <a id="mute">play</a>
         <a href="/" id="home">home</a>
         <a href="/poem" id="return">return</a>    
     </nav>
       <!-- audio -->
-	  <audio id="soundtrack" style="display: none;" autoplay="true">
+	  <audio id="soundtrack" style="display: none;">
 		<source src="/sndtrk.mp3" type="audio/mpeg">
 	</audio>
 </body>
@@ -111,7 +114,9 @@
                  toggleSdk();
                  return false;
             });
-
+			$("#startpoem a").on('click', function() {
+                 toggleSdk();
+            });
 			// Initialize ScrollMagic controller
 			// init
 			var controller = new ScrollMagic.Controller({

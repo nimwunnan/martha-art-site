@@ -14,6 +14,24 @@ body {
 
 }
 
+#startpoem {
+    height: 100vh;
+    text-align: center;
+    padding-top: 20vh;
+    box-sizing: border-box;
+}
+
+#startpoem a {
+    color: wheat;
+    font-family: 'Cormorant Unicase', serif;
+    text-shadow: 1px 1px 3px blueviolet;
+    mix-blend-mode: difference;
+}
+
+#startpoem a:hover {
+    mix-blend-mode: color-burn;
+}
+
 .goodcursor, a, #mute {
     cursor: url(/images/pointer.png), pointer;
  
