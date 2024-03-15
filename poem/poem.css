@@ -1,5 +1,5 @@
 body {
-    background-image: url(/images/poem/bg3.jpeg); 
+    background-image: url(https://oral.pub/thousand/images/poem/bg3.jpeg); 
     background-repeat: no-repeat; 
     background-attachment: fixed; 
     background-size: cover;
@@ -33,7 +33,7 @@ body {
 }
 
 .goodcursor, a, #mute {
-    cursor: url(/images/pointer.png), pointer;
+    cursor: url(https://oral.pub/thousand/images/pointer.png), pointer;
  
  }
 
@@ -42,7 +42,7 @@ body {
 }
 
 #container2 {
-    background-image: url(/images/poem/bg1.jpeg);
+    background-image: url(https://oral.pub/thousand/images/poem/bg1.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -51,7 +51,7 @@ body {
 #intermission {
     width: 100vw;
     height: 48vw;
-    background-image: url(/images/poem/bg2.jpeg);
+    background-image: url(https://oral.pub/thousand/images/poem/bg2.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -91,13 +91,13 @@ body {
 }
 
 .scrollmagic-pin-spacer:has(.horiz_panel.thing0, .horiz_panel.thing2) {
-    background-image: url('https://oral.pub/thousand/poem/skully1.png');
+    background-image: url('https://oral.pub/thousand/images/poem/skully1.png');
     background-position: right center;
     background-repeat: no-repeat;
     background-size: contain
 }
 .scrollmagic-pin-spacer:has(.horiz_panel.thing1, .horiz_panel.thing3) {
-    background-image: url('https://oral.pub/thousand/poem/skully2.png');
+    background-image: url('https://oral.pub/thousand/images/poem/skully2.png');
     background-position: left top;
     background-repeat: no-repeat;
 }
@@ -172,15 +172,15 @@ body {
 }
 /* #TODO: media query for different widths of screen so the text doesn't overflow */
 .horiz_panel.bg1 .stanza {
-    background-image: url(/images/poem/cardbg1.jpeg);
+    background-image: url(https://oral.pub/thousand/images/poem/cardbg1.jpeg);
     
 }
 .horiz_panel.bg2 .stanza {
-    background-image: url(/images/poem/cardbg2.jpeg);
+    background-image: url(https://oral.pub/thousand/images/poem/cardbg2.jpeg);
     
 }
 .horiz_panel.bg3 .stanza {
-    background-image: url(/images/poem/cardbg3.jpeg);
+    background-image: url(https://oral.pub/thousand/images/poem/cardbg3.jpeg);
     
 }
 
