@@ -91,13 +91,13 @@ body {
 }
 
 .scrollmagic-pin-spacer:has(.horiz_panel.thing0, .horiz_panel.thing2) {
-    background-image: url('https://oral.pub/thousand//poem/skully1.png');
+    background-image: url('https://oral.pub/thousand/poem/skully1.png');
     background-position: right center;
     background-repeat: no-repeat;
     background-size: contain
 }
 .scrollmagic-pin-spacer:has(.horiz_panel.thing1, .horiz_panel.thing3) {
-    background-image: url('https://oral.pub/thousand//poem/skully2.png');
+    background-image: url('https://oral.pub/thousand/poem/skully2.png');
     background-position: left top;
     background-repeat: no-repeat;
 }
@@ -121,25 +121,25 @@ body {
 
 }
 #poem-2 .panel.thing0 {
-    background-image: url('https://oral.pub/thousand//poem/panelthing1.png');
+    background-image: url('https://oral.pub/thousand/poem/panelthing1.png');
     background-position: left center;
 
 }
 #poem-2 .panel.thing1 {
-    background-image: url('https://oral.pub/thousand//poem/panelthing2.png');
+    background-image: url('https://oral.pub/thousand/poem/panelthing2.png');
     background-position: right center;
 
 }
 #poem-2 .panel.thing2 {
-    background-image: url('https://oral.pub/thousand//poem/panelthing3.png');
+    background-image: url('https://oral.pub/thousand/poem/panelthing3.png');
     background-position: left center;
 }
 #poem-2 .panel.thing3 {
-    background-image: url('https://oral.pub/thousand//poem/panelthing4.png');
+    background-image: url('https://oral.pub/thousand/poem/panelthing4.png');
     background-position: right center;
 }
 #poem-2 .panel.thing4 {
-    background-image: url('https://oral.pub/thousand//poem/panelthing5.png');
+    background-image: url('https://oral.pub/thousand/poem/panelthing5.png');
     background-position: left center;
 }
 
